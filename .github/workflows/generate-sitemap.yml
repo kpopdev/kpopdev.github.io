@@ -29,13 +29,16 @@ jobs:
         run: |
           # Install sitemap_generator gem
           gem install sitemap_generator
-          
-          # Find the exact path to the sitemap_generator executable
-          # gem which sitemap_generator returns a path like:
-          # /opt/hostedtoolcache/Ruby/3.2.8/x64/lib/ruby/gems/3.2.0/gems/sitemap_generator-6.3.0/lib/sitemap_generator.rb
-          # We need to extract the base path and append /exe/sitemap_generator
-          GEM_BASE_PATH=$(dirname $(gem which sitemap_generator))
-          SITEMAP_GEN_PATH="${GEM_BASE_PATH}/../exe/sitemap_generator" # Navigating from lib/ to exe/
+
+          # Find the exact path to the sitemap_generator executable using 'gem contents'
+          # This command lists all files installed by a gem and we filter for the executable.
+          SITEMAP_GEN_PATH=$(gem contents sitemap_generator --show-executables | head -n 1)
+
+          # Check if SITEMAP_GEN_PATH is empty (meaning executable not found)
+          if [ -z "$SITEMAP_GEN_PATH" ]; then
+            echo "Error: sitemap_generator executable not found after installation."
+            exit 1
+          fi
 
           # Generate sitemap - Directly calling the executable using its full path
           "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
