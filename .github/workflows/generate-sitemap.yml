@@ -28,11 +28,15 @@ jobs:
       - name: Install sitemap_generator gem
         run: |
           gem install sitemap_generator --no-document
+
+          # Export gem bin path into PATH
+          echo "GEM_HOME=$(ruby -e 'puts Gem.dir')" >> $GITHUB_ENV
+          echo "GEM_BIN_DIR=$(ruby -e 'puts Gem.bindir')" >> $GITHUB_ENV
           echo "$(ruby -e 'puts Gem.bindir')" >> $GITHUB_PATH
 
       - name: Generate Sitemap
         run: |
-          echo "Running sitemap_generator..."
+          echo "Running sitemap_generator from: $(which sitemap_generator)"
           sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
           ls -l sitemap.xml
 
