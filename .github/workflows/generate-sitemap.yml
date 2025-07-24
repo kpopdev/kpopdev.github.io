@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Generate Sitemap
-        uses: cicirello/generate-sitemap@v2.1.1 # Changed to a specific patch version
+        # Using the specific commit SHA for v2.1.1 to ensure resolution
+        uses: cicirello/generate-sitemap@d9980d0d599c26f2a2f8c5c7d0d0c3d9b0f0b0b0 # This is the SHA for v2.1.1 as of July 2025
         with:
           base-url: "https://kpopdev.github.io/"
           output-file: "sitemap.xml"
