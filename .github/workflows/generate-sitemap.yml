@@ -23,17 +23,19 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Use a specific Ruby version (e.g., matching ubuntu's default or a common one)
-          # Removed bundler-cache as it requires a Gemfile, which we don't have
+          ruby-version: '3.2' # Use a specific Ruby version
 
       - name: Generate Sitemap
         run: |
           # Install sitemap_generator gem
           gem install sitemap_generator
-
-          # Locate the sitemap_generator executable path
-          # This command finds where the gem executable is installed
-          SITEMAP_GEN_PATH=$(gem environment gemdir)/gems/sitemap_generator-*/exe/sitemap_generator
+          
+          # Find the exact path to the sitemap_generator executable
+          # gem which sitemap_generator returns a path like:
+          # /opt/hostedtoolcache/Ruby/3.2.8/x64/lib/ruby/gems/3.2.0/gems/sitemap_generator-6.3.0/lib/sitemap_generator.rb
+          # We need to extract the base path and append /exe/sitemap_generator
+          GEM_BASE_PATH=$(dirname $(gem which sitemap_generator))
+          SITEMAP_GEN_PATH="${GEM_BASE_PATH}/../exe/sitemap_generator" # Navigating from lib/ to exe/
 
           # Generate sitemap - Directly calling the executable using its full path
           "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
