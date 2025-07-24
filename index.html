@@ -3,234 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hanni Bot - The Ultimate Discord K-Pop, Notification, AI, and Downloader Bot</title>
-    <meta name="description" content="Hanni Bot: The ultimate Discord K-Pop, notification, AI, and downloader bot. Get instant updates from YouTube, Instagram, TikTok, Weverse, and more!">
-    <link rel="icon" type="image/png" href="https://kpopdev.github.io/images/hanni-favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="google-site-verification" content="google55a59fad368515c9.html">
+    <title>Hanni Bot - Your Ultimate Discord Companion 🚀</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
-
         :root {
-            --primary-color: #7289DA; /* Discord Purple */
-            --secondary-color: #2C2F33; /* Discord Dark Grey */
-            --background-color: #23272A; /* Discord Black */
-            --text-color: #FFFFFF;
-            --light-grey: #99AAB5;
-            --gradient-start: #7289DA;
-            --gradient-end: #99AAB5;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            --primary-color: #e91e63; /* Pink */
+            --secondary-color: #2196f3; /* Blue */
+            --text-color: #333;
+            --light-bg: #f8f8f8;
+            --dark-bg: #e0e0e0;
+            --card-bg: #ffffff;
+            --border-color: #ddd;
+            --gradient-start: #e91e63;
+            --gradient-end: #ff4081;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
+            margin: 0;
+            background: linear-gradient(135deg, var(--light-bg), var(--dark-bg));
             color: var(--text-color);
-            line-height: 1.6;
+            line-height: 1.7;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 25px;
+            flex-grow: 1;
         }
 
         header {
-            background: var(--secondary-color);
-            padding: 20px 0;
-            border-bottom: 3px solid var(--primary-color);
+            background: linear-gradient(45deg, var(--gradient-start), var(--gradient-end));
+            color: white;
+            padding: 50px 20px;
             text-align: center;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
         }
 
-        header .logo {
-            font-size: 2.5em;
-            font-weight: 700;
-            color: var(--primary-color);
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-
-        .hero {
-            background: linear-gradient(135deg, var(--gradient-start), var(--gradient-end));
-            padding: 60px 20px;
-            text-align: center;
-            color: var(--text-color);
-            position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            margin: 20px auto;
-            max-width: 90%;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
-            transform: rotate(45deg);
-            animation: pulse 10s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(0.9) rotate(45deg); opacity: 0.5; }
-            100% { transform: scale(1.1) rotate(45deg); opacity: 1; }
-        }
-
-        .hero h1 {
+        header h1 {
             font-size: 3.5em;
-            margin-bottom: 15px;
-            font-weight: 700;
-            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
 
-        .hero p {
-            font-size: 1.3em;
-            margin-bottom: 30px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+        header p {
+            font-size: 1.2em;
+            max-width: 700px;
+            margin: 0 auto;
             opacity: 0.9;
         }
 
         .btn {
             display: inline-block;
-            background-color: var(--primary-color);
-            color: var(--text-color);
+            background-color: var(--secondary-color);
+            color: white;
             padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 600;
-            font-size: 1.1em;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
             margin: 10px;
-            border: none;
-            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .btn:hover {
-            background-color: #677BC4;
+            background-color: #1a7bbd;
             transform: translateY(-3px);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-secondary {
-            background-color: var(--light-grey);
-            color: var(--secondary-color);
+        .btn.primary {
+            background-color: var(--primary-color);
         }
 
-        .btn-secondary:hover {
-            background-color: #8E9BA7;
+        .btn.primary:hover {
+            background-color: #c91754;
         }
 
-        .features {
-            padding: 50px 0;
-            text-align: center;
-            background-color: var(--secondary-color);
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .features h2, .private-bot h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
+        h2, h3 {
             color: var(--primary-color);
-            position: relative;
-            display: inline-block;
-        }
-
-        .features h2::after, .private-bot h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--text-color);
-            border-radius: 2px;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 0 20px;
-        }
-
-        .feature-item {
-            background-color: var(--background-color);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
-        }
-
-        .feature-item i {
-            font-size: 3em;
-            color: var(--primary-color);
+            margin-top: 40px;
             margin-bottom: 20px;
-        }
-
-        .feature-item h3 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
-            color: var(--text-color);
-        }
-
-        .feature-item p {
-            font-size: 1em;
-            color: var(--light-grey);
-        }
-
-        .showcase {
-            padding: 50px 0;
-            text-align: center;
-            margin-top: 20px;
-        }
-
-        .showcase h2 {
-            font-size: 2.5em;
-            margin-bottom: 40px;
-            color: var(--primary-color);
-            position: relative;
+            font-weight: 700;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 5px;
             display: inline-block;
         }
 
-        .showcase h2::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 4px;
-            background-color: var(--text-color);
-            border-radius: 2px;
+        h2 {
+            font-size: 2.5em;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            border-bottom: 1px dashed var(--primary-color);
+        }
+
+        a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #1a7bbd;
+        }
+
+        .section-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .section-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+        }
+
+        ul li {
+            background: var(--light-bg);
+            padding: 15px 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        }
+
+        ul li strong {
+            color: var(--primary-color);
+        }
+
+        .grid-2-cols {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        @media (min-width: 768px) {
+            .grid-2-cols {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .image-gallery img {
+            max-width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .image-gallery img:hover {
+            transform: scale(1.03);
         }
 
         .video-container {
             position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
             height: 0;
+            margin-top: 20px;
+            border-radius: 12px;
             overflow: hidden;
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #000;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
         }
 
         .video-container iframe {
@@ -242,202 +205,391 @@
             border: 0;
         }
 
-        .section-separator {
-            height: 50px;
-            background: linear-gradient(90deg, var(--background-color), var(--primary-color), var(--background-color));
-            margin: 40px 0;
-            border-radius: 5px;
-        }
-
-        .private-bot {
-            padding: 50px 0;
-            text-align: center;
-            background-color: var(--secondary-color);
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        }
-
-        .private-bot p {
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-            color: var(--light-grey);
-        }
-
-        .private-bot .contact-info {
-            background-color: var(--background-color);
-            padding: 25px;
-            border-radius: 10px;
-            max-width: 600px;
-            margin: 30px auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .private-bot .contact-info p {
-            margin: 10px 0;
-            font-size: 1.1em;
-            color: var(--text-color);
-        }
-
-        .private-bot .contact-info a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-
-        .private-bot .contact-info a:hover {
-            color: #677BC4;
-            text-decoration: underline;
-        }
-
         footer {
-            background-color: var(--background-color);
-            color: var(--light-grey);
             text-align: center;
-            padding: 30px 0;
-            border-top: 3px solid var(--primary-color);
-            margin-top: 40px;
+            padding: 30px 20px;
+            margin-top: 50px;
+            background-color: var(--primary-color);
+            color: white;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
         }
 
         footer p {
+            margin: 0;
             font-size: 0.9em;
-            margin-bottom: 10px;
+            opacity: 0.9;
         }
 
-        footer .social-icons a {
-            color: var(--light-grey);
-            font-size: 1.5em;
+        footer a {
+            color: white;
+            font-weight: 600;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
             margin: 0 10px;
-            transition: color 0.3s ease;
+            color: white;
+            font-size: 1.5em;
+            transition: transform 0.2s ease;
         }
 
-        footer .social-icons a:hover {
+        .social-icons a:hover {
+            transform: scale(1.1);
+            text-decoration: none;
+        }
+
+        .about-me-profile {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .about-me-profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        .about-me-profile h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            border-bottom: none;
+        }
+
+        .about-me-profile p {
+            max-width: 600px;
+            font-size: 1.1em;
+        }
+
+        .skill-badges img {
+            height: 30px;
+            margin: 5px;
+        }
+        
+        .gh-achievements img {
+            height: 50px; /* Adjust size as needed */
+            margin: 5px;
+            vertical-align: middle;
+        }
+
+        .command-list-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+
+        .command-list-item strong {
             color: var(--primary-color);
+            min-width: 120px; /* Adjust as needed for alignment */
         }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5em;
-            }
-            .hero p {
-                font-size: 1em;
-            }
-            .features h2, .private-bot h2 {
-                font-size: 2em;
-            }
-            .feature-item {
-                padding: 20px;
-            }
-            .feature-item h3 {
-                font-size: 1.5em;
-            }
-            .feature-item p {
-                font-size: 0.9em;
-            }
-            .btn {
-                padding: 10px 20px;
-                font-size: 1em;
-            }
+        .command-list-item .description {
+            flex-grow: 1;
+        }
+        .command-list-item .preview-links a {
+            margin-left: 10px;
+            font-size: 0.9em;
+            white-space: nowrap;
         }
     </style>
 </head>
 <body>
+
     <header>
         <div class="container">
-            <div class="logo">Hanni Bot</div>
+            <h1>Hanni Bot - Your Ultimate Discord Companion! 🚀</h1>
+            <p>Welcome to **Hanni Bot**, the fastest and most feature-packed Discord bot, trusted by over **1,000,000 users** and growing daily! Whether you're a devoted K-pop fan, a rising streamer, or simply love cutting-edge tools, Hanni Bot offers an unparalleled experience.</p>
+            <p>Built with passion and monitored 24/7, we are committed to continuous innovation. <strong>Have a custom feature or bot in mind? Message <code>@kylauwu</code> on Discord to request it!</strong></p>
+            <div class="header-actions">
+                <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" class="btn primary">Add Hanni Bot to Your Server</a>
+                <a href="https://discord.gg/mXSDAv3ygJ" class="btn">Join Our Support Server</a>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="hero">
-            <div class="container">
-                <h1>Your Ultimate Discord K-Pop & Notification Companion</h1>
-                <p>Hanni Bot brings instant K-Pop updates, powerful notification features, advanced AI capabilities, and seamless media downloading right to your Discord server!</p>
-                <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123&permissions=8&scope=bot%20applications.commands" class="btn"><i class="fab fa-discord"></i> Invite Hanni Bot</a>
-                <a href="https://discord.bots.gg/bots/624955196040282123" class="btn btn-secondary"><i class="fas fa-chart-line"></i> View on Discord.bots.gg</a>
-            </div>
+    <div class="container">
+
+        <section class="section-card">
+            <h2>✨ Stay Ahead with Instant Notifications & Updates!</h2>
+            <p>Never miss a beat from your favorite platforms. Use these simple commands to set up instant notifications:</p>
+            <ul>
+                <li class="command-list-item"><strong>YouTube:</strong> <span class="description">`.tube add`</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576634180_01afd4ef40_b.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>Instagram:</strong> <span class="description">`.insta add`</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576531209_79fded63f5_z.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>Instagram (Faster):</strong> <span class="description">`.insta2 add` (Lightning-fast post delivery!)</span></li>
+                <li class="command-list-item"><strong>TikTok:</strong> <span class="description">`.tiktok add`</span></li>
+                <li class="command-list-item"><strong>Bsky.app:</strong> <span class="description">`.bsky add`</span> <span class="preview-links"><a href="https://www.youtube.com/embed/VIDEO_ID_FOR_BSKY_PREVIEW" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>Weverse:</strong> <span class="description">`.weverse add`</span></li>
+                <li class="command-list-item"><strong>Weverse Live:</strong> <span class="description">`.weverselive add` (For live updates)</span></li>
+                <li class="command-list-item"><strong>Weverse Comments:</strong> <span class="description">`.weversecomment add` (For idol comments)</span></li>
+                <li class="command-list-item"><strong>YouTube Posts:</strong> <span class="description">`.ytposts add`</span></li>
+                <li class="command-list-item"><strong>Bilibili:</strong> <span class="description">`.bilibili add`</span></li>
+                <li class="command-list-item"><strong>Twitter (VIP):</strong> <span class="description">`.twitter add`</span> <span class="preview-links"><strong>VIP Exclusive:</strong> `.weibo` (Super-fast Weibo notifications) <a href="https://live.staticflickr.com/65535/53576652740_5f35f7ddfe_b.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>Twitter (Free):</strong> <span class="description">`.freetwitter add` (Top-tier Twitter notifications for everyone!)</span> <span class="preview-links"><a href="https://www.youtube.com/embed/VIDEO_ID_FOR_FREE_TWITTER_PREVIEW" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>K-Pop Schedule:</strong> <span class="description">`.kupdate add` (Free, supports select groups—view list with `.kupdate add list`)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576527229_9cdba1c5ba_b.jpg" target="_blank">[Preview]</a> <a href="https://live.staticflickr.com/65535/53576528904_73abafc3c4_b.jpg" target="_blank">[How-to]</a></span></li>
+                <li class="command-list-item"><strong>Reddit:</strong> <span class="description">`.reddit add`</span></li>
+                <li class="command-list-item"><strong>Facebook:</strong> <span class="description">`.facebook add`</span></li>
+                <li class="command-list-item"><strong>Tumblr:</strong> <span class="description">`.tumblr add`</span></li>
+                <li class="command-list-item"><strong>Allkpop:</strong> <span class="description">`.allkpop add` (Stay updated with allkpop.com)</span></li>
+                <li class="command-list-item"><strong>Fancafe:</strong> <span class="description">`.fancafe add`</span></li>
+                <li class="command-list-item"><strong>JYP Fans App:</strong> <span class="description">`.jypfans add` <strong>NEW!</strong></span></li>
+            </ul>
+
+            <h3>🎥 Dedicated Streamer & YouTuber Tools</h3>
+            <p>Get live alerts for your favorite creators:</p>
+            <ul>
+                <li class="command-list-item"><strong>Kick:</strong> <span class="description">`.kicklive add`</span></li>
+                <li class="command-list-item"><strong>TikTok Live:</strong> <span class="description">`.tiktoklive add`</span></li>
+                <li class="command-list-item"><strong>Twitch:</strong> <span class="description">`.twitch add`</span></li>
+                <li class="command-list-item"><strong>Trovo:</strong> <span class="description">`.trovo add`</span></li>
+                <li class="command-list-item"><strong>YouTube Live:</strong> <span class="description">`.youtubelive add`</span></li>
+                <li class="command-list-item"><strong>Stationhead:</strong> <span class="description">`.stationhead add`</span></li>
+            </ul>
+            <p><strong>NEW:</strong> <strong>YouTube Membership</strong>—DM <code>@kylauwu</code> for exclusive access! <a href="https://www.youtube.com/embed/VIDEO_ID_FOR_YOUTUBE_MEMBERSHIP_PREVIEW" target="_blank">[Preview]</a></p>
         </section>
 
-        <section class="features">
-            <div class="container">
-                <h2>Key Features</h2>
-                <div class="feature-grid">
-                    <div class="feature-item">
-                        <i class="fas fa-bell"></i>
-                        <h3>Instant Notifications</h3>
-                        <p>Get real-time updates from YouTube, Instagram, TikTok, Weverse, VLive, and more for your favorite K-Pop groups and artists.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-robot"></i>
-                        <h3>Advanced AI Chatbot</h3>
-                        <p>Engage with a smart AI that can answer your questions, generate content, and interact naturally within your server.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-download"></i>
-                        <h3>Media Downloader</h3>
-                        <p>Effortlessly download videos and audio from various platforms directly through Discord commands.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-music"></i>
-                        <h3>K-Pop Focused</h3>
-                        <p>Tailored for K-Pop fans, Hanni Bot ensures you never miss a moment from your beloved idols.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-cogs"></i>
-                        <h3>Customizable Settings</h3>
-                        <p>Configure bot prefixes, notification channels, and other settings to fit your server's unique needs.</p>
-                    </div>
-                    <div class="feature-item">
-                        <i class="fas fa-headset"></i>
-                        <h3>Reliable Support</h3>
-                        <p>Join our support server for quick assistance, feature requests, and community interaction.</p>
-                    </div>
+        <section class="section-card">
+            <h2>🎉 Explore More Awesome Features!</h2>
+            <p>Hanni Bot is packed with unique and powerful functionalities:</p>
+            <ul>
+                <li class="command-list-item"><strong>K-Pop Images:</strong> <span class="description">`.kimg` (Access a stunning HD K-pop gallery)</span></li>
+                <li class="command-list-item"><strong>Image Search:</strong> <span class="description">`.img` (Powered by Google Image API)</span></li>
+                <li class="command-list-item"><strong>Youtube:</strong> <span class="description">`.yt` (Utilizes Google/YouTube API)</span></li>
+                <li class="command-list-item"><strong>Image to Art:</strong> <span class="description">`.imgtoart` (Transform your JPGs into beautiful art)</span></li>
+                <li class="command-list-item"><strong>K-Pop Charts:</strong> <span class="description">`.kpopchart` (All-in-one K-pop chart tracking)</span></li>
+                <li class="command-list-item"><strong>K-Pop Memes:</strong> <span class="description">`.kpopmeme` (Get your daily dose of K-pop humor)</span></li>
+                <li class="command-list-item"><strong>K-Pop Releases:</strong> <span class="description">`.krelease` or `.kcomeback` (Stay updated on new music)</span></li>
+                <li class="command-list-item"><strong>Idol Profiles:</strong> <span class="description">`.kprofile` (Detailed profiles of your favorite idols)</span></li>
+                <li class="command-list-item"><strong>Lyrics:</strong> <span class="description">`.lyrics` (Find even rare and hard-to-find song lyrics!)</span></li>
+                <li class="command-list-item"><strong>Anime AI:</strong> <span class="description">`.animeai` (Magically turn your images into anime style)</span></li>
+                <li class="command-list-item"><strong>YouTube to GIF:</strong> <span class="description">`.ytgif` (Convert YouTube segments into GIFs, max 10s)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576539269_cd2aa4dd33_z.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><strong>OCR:</strong> <span class="description">`.ocr` (Extract text from images with ease)</span></li>
+                <li class="command-list-item"><strong>Screenshots:</strong> <span class="description">`.screenshot` (Capture instant website screenshots)</span></li>
+                <li class="command-list-item"><strong>Wattpad Search:</strong> <span class="description">`.wattpad` (Discover stories on Wattpad)</span></li>
+                <li class="command-list-item"><strong>Wolfram Alpha:</strong> <span class="description">`.wolfram` (Ask any question and get intelligent answers)</span></li>
+                <li class="command-list-item"><strong>Photocards:</strong> <span class="description">`.photocards` (Collect and view K-pop photocards)</span></li>
+                <li class="command-list-item"><strong>Horoscope:</strong> <span class="description">`.horoscope` (Daily personalized readings)</span></li>
+                <li class="command-list-item"><strong>K-Pop AI Covers:</strong> <span class="description">`.kpopsound` (Experience AI-generated K-pop covers)</span></li>
+                <li class="command-list-item"><strong>Twitter Stats:</strong> <span class="description">`.twitterstats` (Live follower counters)</span></li>
+                <li class="command-list-item"><strong>Instagram Stats:</strong> <span class="description">`.instastats`</span></li>
+                <li class="command-list-item"><strong>Discord Avatars:</strong> <span class="description">`.discordavatar` (Retrieve avatars/banners by ID, even from outside your server!)</span></li>
+                <li class="command-list-item"><strong>GIF Search:</strong> <span class="description">`.gifsearch <idolname>` (Find GIFs of your favorite idols)</span></li>
+                <li class="command-list-item"><strong>Bump Reminder:</strong> <span class="description">`.bumpreminder` (Never forget to bump your server on Disboard!)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576540749_3b4346b8d2_b.jpg" target="_blank">[Preview]</a></span></li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>🤖 Advanced AI Features (Powered by OpenAI/ChatGPT)</h2>
+            <p>Unlock the power of AI with Hanni Bot:</p>
+            <ul>
+                <li class="command-list-item"><strong>Chat with AI:</strong> <span class="description">`.askgpt how are you?` (Engage in intelligent conversations)</span></li>
+                <li class="command-list-item"><strong>Image Generator:</strong> <span class="description">`.imagine` or `.imgai` (e.g., "anime girl with red eyes" - bring your ideas to life!)</span></li>
+            </ul>
+            <h3>Chat with K-Pop Idols (AI)</h3>
+            <p>Experience personalized conversations with AI versions of your favorite idols!</p>
+            <p>Examples: `.hanni how are you?`, `.jungkook hi!`</p>
+            <p>Supported idols: `.hanni`, `.heeseung`, `.hyunjin`, `.jimin`, `.jungkook`, `.karina`, `.leeknow`, `.newjeans`, `.sana`, `.wonyoung`, `.yeonjun`, `.yoongi`, `.yunjin`, `.pokemon`</p>
+        </section>
+
+        <section class="section-card">
+            <h2>📥 Seamless Social Media Downloaders</h2>
+            <p>Effortlessly download content from your most-loved platforms!</p>
+            <ul>
+                <li class="command-list-item"><strong>TikTok:</strong> <span class="description">`.ttdl <link>`</span></li>
+                <li class="command-list-item"><strong>Instagram:</strong> <span class="description">`.igd <link>`</span></li>
+                <li class="command-list-item"><strong>Twitter:</strong> <span class="description">`.twd <link>`</span></li>
+                <li class="command-list-item"><strong>YouTube Shorts:</strong> <span class="description">`.svd <link>`</span></li>
+                <li class="command-list-item"><strong>YouTube Video:</strong> <span class="description">`.ytdownloader <link>`</span></li>
+                <li class="command-list-item"><strong>Spotify to MP3:</strong> <span class="description">`.spd <link>`</span></li>
+                <li class="command-list-item"><strong>Pinterest:</strong> <span class="description">`.pinterest <link>`</span></li>
+                <li class="command-list-item"><strong>Facebook:</strong> <span class="description">`.fbdownloader <link>`</span></li>
+                <li class="command-list-item"><strong>Reddit:</strong> <span class="description">`.redditdownloader <link>` (Widely regarded as the best on Discord!)</span></li>
+                <li class="command-list-item"><strong>Instagram VIP:</strong> <span class="description">`.igdvip <link>` (Faster downloads, with a cooldown)</span></li>
+                <li class="command-list-item"><strong>NEW Multi-Platform Downloader:</strong> <span class="description">`.dl <link>` (Download photos and videos from Instagram, Facebook, TikTok, Bilibili, Reddit, Twitter, Snapchat, and iFunny!)</span> <span class="preview-links"><a href="https://raw.githubusercontent.com/kpopdev/images/refs/heads/main/image.png" target="_blank">[How-to & Review]</a></span></li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>🎲 Fun K-Pop Games!</h2>
+            <p>Test your K-pop knowledge and have a blast with our interactive games:</p>
+            <ul>
+                <li class="command-list-item"><strong>Idol Guessing:</strong> <span class="description">`.kpopgg`</span></li>
+                <li class="command-list-item"><strong>Ultimate K-Pop Game:</strong> <span class="description">`.kpopgame`</span></li>
+                <li class="command-list-item"><strong>Song Guessing:</strong> <span class="description">`.sg`</span></li>
+                <li class="command-list-item"><strong>Bias Battles:</strong> <span class="description">`.biasgame`</span></li>
+            </ul>
+            <h3>K-Pop Card Feature (Beta)</h3>
+            <p>Collect, view, and trade your favorite K-pop photocards!</p>
+            <ul>
+                <li class="command-list-item"><strong>Claim:</strong> <span class="description">`.claim <group>`</span></li>
+                <li class="command-list-item"><strong>View Cards:</strong> <span class="description">`.flex`</span></li>
+                <li class="command-list-item"><strong>Trade:</strong> <span class="description">`.trade`</span></li>
+                <li class="command-list-item"><strong>Free Claim:</strong> <span class="description">`.fc` or `.freeclaim`</span></li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>⚙️ Customize Your Hanni Bot Experience</h2>
+            <p>Personalize Hanni Bot to perfectly fit your server's needs:</p>
+            <ul>
+                <li class="command-list-item"><strong>Change Prefix:</strong> <span class="description">`.set serverprefix !` (Example: Changes prefix to `!`)</span></li>
+                <li class="command-list-item"><strong>Check Prefix:</strong> <span class="description">Simply ping `@Hanni 🐰#9906` to see the current prefix.</span></li>
+                <li class="command-list-item"><strong>Disable Commands:</strong> <span class="description">`.permissions addserverrule deny hanni <channel_ID_or_ping>` (Control command usage by channel or user)</span></li>
+                <li class="command-list-item"><strong>Full Commands List:</strong> <span class="description">`.help` (Admins only; ensure the bot has webhook/embed permissions for notifications)</span></li>
+            </ul>
+        </section>
+
+        <section class="section-card">
+            <h2>💖 Support Hanni Bot & Get VIP Perks!</h2>
+            <p>Hanni Bot's extensive features and 24/7 monitoring involve significant operational costs. Your support helps us grow and keep the bot online for everyone!</p>
+            <div class="grid-2-cols">
+                <div>
+                    <h3>Donation Options:</h3>
+                    <ul>
+                        <li><strong>PayPal:</strong> <a href="mailto:dabdab683@gmail.com">dabdab683@gmail.com</a></li>
+                        <li><strong>BTC on BTC NETWORK:</strong> <code>39cTVjafbfmbeCyZKmkV6L5EA53XLVpjBN</code></li>
+                        <li><strong>Solana wallet on Solana Network:</strong> <code>Be6QscRaJ1jzss6pASh56eRPKYpZXcBWyVEeHD27jw4p</code></li>
+                        <li><strong>Ko-fi:</strong> <a href="https://ko-fi.com/kpopdev/tiers" target="_blank">Support Here</a></li>
+                        <li><strong>Liberapay:</strong> <a href="https://liberapay.com/kpop/" target="_blank">Support Here</a></li>
+                        <li><strong>In-Bot:</strong> Use `.donate` in Discord (View all available donation options)</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://raw.githubusercontent.com/kpopdev/kpopdev/refs/heads/main/39e631dcf3a8c87ba024a6520c0a5766.jpg" alt="Profile Banner" style="max-width: 100%; border-radius: 8px; margin-bottom: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+                    <p><strong>After donating, DM <code>@kylauwu</code> your server ID to unlock exclusive VIP perks and benefits!</strong></p>
                 </div>
             </div>
         </section>
 
-        <div class="section-separator"></div>
+        <section class="section-card">
+            <h2>📢 Important Rules for a Positive Community</h2>
+            <p>To ensure a smooth and enjoyable experience for all users, please adhere to these rules:</p>
+            <ul>
+                <li><strong>No spamming</strong> commands. Always wait for the bot's reply to prevent rate limits and potential permanent bans.</li>
+                <li><strong>No NSFW</strong> content when using AI features or downloaders. Violators will face immediate and permanent bans.</li>
+                <li><strong>Follow Terms of Service:</strong>
+                    <ul>
+                        <li><a href="https://www.youtube.com/t/terms" target="_blank">YouTube TOS</a></li>
+                        <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
 
-        <section class="showcase">
-            <div class="container">
-                <h2>Watch Hanni Bot in Action</h2>
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <section class="section-card">
+            <h2>🌟 Join Our Vibrant Community!</h2>
+            <p>Connect with other Hanni Bot users, get support, and share your feedback:</p>
+            <ul>
+                <li><strong>Support Server:</strong> <a href="https://discord.gg/mXSDAv3ygJ" target="_blank">Join Here</a> (Report bugs, ask questions, or get assistance!)</li>
+                <li><strong>Add Owner:</strong> <a href="https://discord.com/users/1041903492400435261" target="_blank">Click Here</a></li>
+                <li><strong>DM Me Directly:</strong> <code>@kylauwu</code> on Discord</li>
+            </ul>
+            <p><strong>Hanni Bot is meticulously crafted with official APIs from YouTube, Instagram, Twitter, Twitch, and many more, ensuring reliability and top-tier performance. We've poured our dedication into making this the ultimate Discord bot—your support helps us continue to innovate and expand!</strong></p>
+        </section>
+
+        <section class="section-card">
+            <div class="about-me-profile">
+                <img src="https://avatars.githubusercontent.com/u/YOUR_GITHUB_AVATAR_ID?v=4" alt="Kyla's Profile Picture"> <h2>Kyla (kpopdev) 👋</h2>
+                <p>Hi, I’m Kyla, the owner and creator of **Hanni Bot**—the best notification, AI, and downloader Discord bot with over 1,000,000 users and growing fast! Currently, Hanni Bot is active in 10,000+ Discord servers, delivering lightning-fast updates and features for social media, K-pop, streaming, and more. ❤️🐍🤖</p>
+                <a href="https://ko-fi.com/G2G314VFD" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" style="height: 36px; margin-top: 15px;"></a>
+            </div>
+
+            <h3>About Me</h3>
+            <ul>
+                <li>🔭 I’m currently working on <strong>Hanni Bot</strong> (<a href="https://discord.bots.gg/bots/624955196040282123" target="_blank">https://discord.bots.gg/bots/624955196040282123</a>), a powerful Discord bot, and contributing to open-source projects like <a href="https://github.com/Cog-Creators/Red-DiscordBot" target="_blank">Red-DiscordBot</a>.</li>
+                <li>🌱 I’m learning and mastering Python, Java, and more to enhance my bot development skills.</li>
+                <li>💬 Ask me about Discord bots, K-pop notifications, or programming—I’m here to help! My Discord username is `@kylauwu`.</li>
+                <li>🎵 Inspired by K-pop and coding, I bring my passion for K-pop into Hanni Bot’s features!</li>
+                <li>🌐 Languages: Fluent in Korean, English, and West Slavic languages.</li>
+                <li>📫 Reach me on Discord: `@kylauwu` or email: <a href="mailto:dabdab683@gmail.com">dabdab683@gmail.com</a></li>
+                <li>🌐 <a href="https://discord.gg/mXSDAv3ygJ" target="_blank">Hanni Bot Support Server</a> | <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" target="_blank">Add Hanni Bot</a></li>
+            </ul>
+
+            <h3>My Skills</h3>
+            <div class="skill-badges">
+                <img src="https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue" alt="Python">
+                <img src="https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white" alt="Java">
+                <img src="https://img.shields.io/badge/Discord%20API-7289DA?style=for-the-badge&logo=discord&logoColor=white" alt="Discord API">
+                <img src="https://img.shields.io/badge/K_Pop-FF0066?style=for-the-badge&logo=kpop&logoColor=white" alt="K-Pop">
+                <img src="https://img.shields.io/badge/Open--Source-568b6d?style=for-the-badge&logo=opensource&logoColor=white" alt="Open Source">
                 </div>
+
+            <h3>My GitHub Achievements</h3>
+            <div class="gh-achievements">
+                <img src="https://github.githubassets.com/assets/quickdraw-default-39c6aec8ff89.png" alt="Quickdraw">
+                <img src="https://github.githubassets.com/assets/pull-shark-default-498c279a747d.png" alt="Pull Shark">
+                <img src="https://github.githubassets.com/assets/pair-extraordinaire-default-579438a20e01.png" alt="Pair Extraordinaire">
+            </div>
+
+            <h3>Pinned Projects</h3>
+            <ul>
+                <li><strong><a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" target="_blank">Hanni Bot</a></strong> - The ultimate Discord notification, AI, and downloader bot.</li>
+                <li><strong><a href="https://github.com/Cog-Creators/Red-DiscordBot" target="_blank">Red-DiscordBot</a></strong> - Contributing to this multi-function Discord bot framework.</li>
+                <li><strong><a href="https://github.com/subzeroid/instagrapi" target="_blank">instagrapi</a></strong> - Working on Instagram API integration for Hanni Bot.</li>
+            </ul>
+
+            <h3>Connect With Me</h3>
+            <div class="social-icons">
+                <a href="https://discord.com/users/1041903492400435261" target="_blank" title="Discord Profile"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/discord.svg" alt="Discord" width="24" height="24"></a>
+                <a href="https://discord.gg/mXSDAv3ygJ" target="_blank" title="Support Server"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/discord.svg" alt="Discord Server" width="24" height="24"></a>
+                <a href="https://ko-fi.com/kpopdev" target="_blank" title="Ko-fi"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/kofi.svg" alt="Ko-fi" width="24" height="24"></a>
+                <a href="https://liberapay.com/kpop" target="_blank" title="Liberapay"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/liberapay.svg" alt="Liberapay" width="24" height="24"></a>
+                <a href="mailto:dabdab683@gmail.com" title="Email"><img src="https://raw.githubusercontent.com/edent/SuperTinyIcons/master/images/svg/mail.svg" alt="Email" width="24" height="24"></a>
+                </div>
+        </section>
+
+        <section class="section-card">
+            <h2>YouTube Feeds API by Kyla <3</h2>
+            <p>I also offer the <strong>YouTube Feeds API</strong>, a lightning-fast tool to get the latest videos from YouTube channels! 🌟 Check out its awesome features:</p>
+            <ul>
+                <li>Get all videos from a YouTube channel.</li>
+                <li>Fastest YouTube API available.</li>
+                <li>Reliable, working 24/7.</li>
+            </ul>
+            <p>Explore the API and its documentation here: <a href="https://platform.sulu.sh/apis/hanni-bot/youtube-feeds/readme" target="_blank">YouTube Feeds API</a></p>
+
+            <h3>Watch Hanni Bot in Action</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/VIDEO_ID_FOR_HANNI_BOT_ACTION" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
-        <div class="section-separator"></div>
-
-        <section class="private-bot">
-            <div class="container">
-                <h2>Exclusive Private Notification Bot</h2>
-                <p>Discover my private bot, offering instant Discord notifications for Instagram (posts/stories) and Truth Social. Both features have been rigorously tested and proven reliable for over 4 years!</p>
-                <div class="video-container" style="margin-bottom: 30px;">
-                    <iframe src="https://www.youtube.com/watch?v=zXFWhGqFvTA4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-                <p>You can get both features for a very cheap price!</p>
-                <div class="contact-info">
-                    <p><strong>Pricing for Traders:</strong> Only 100$ for both features!</p>
-                    <p>Message me on Discord: <strong>kylauwu</strong></p>
-                    <p>Find my Discord ID here: <a href="https://discord.com/users/1041903492400435261" target="_blank">https://discord.com/users/1041903492400435261</a></p>
-                    <p>Join the support server: <a href="https://discord.gg/kpop-1051507698782441565" target="_blank">https://discord.gg/kpop-1051507698782441565</a></p>
-                </div>
-            </div>
+        <section class="section-card">
+            <h2>Support Hanni Bot</h2>
+            <p>All features cost money to maintain. Please support us to keep Hanni Bot online:</p>
+            <ul>
+                <li>PayPal: dabdab683@gmail.com</li>
+                <li>Ko-fi: <a href="https://ko-fi.com/kpopdev/tiers" target="_blank">Donate Here</a></li>
+                <li>Liberapay: <a href="https://liberapay.com/kpop/tiers" target="_blank">Support Here</a></li>
+                <li>BTC Wallet: <code>39cTVjafbfmbeCyZKmkV6L5EA53XLVpjBN</code></li>
+                <li>Solana wallet: <code>Be6QscRaJ1jzss6pASh56eRPKYpZXcBWyVEeHD27jw4p</code></li>
+                <li>Use `.donate` in Discord for other donation options.</li>
+            </ul>
+            <p>Message me your server ID after donating: <code>@kylauwu</code> on Discord.</p>
+            <p class="small-text"><strong>Note:</strong> Follow Google/YouTube TOS (<a href="https://www.youtube.com/t/terms" target="_blank">Terms</a>) and <a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a>. Do not spam, use NSFW content, or download NSFW links, or you’ll be banned.</p>
         </section>
-    </main>
+
+    </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Hanni Bot. All rights reserved.</p>
-            <div class="social-icons">
-                <a href="https://discord.gg/kpop-1051507698782441565" target="_blank" aria-label="Discord Support Server"><i class="fab fa-discord"></i></a>
-                </div>
+            <p>© 2025 Hanni Bot. All rights reserved. Crafted with ❤️ by Kyla.</p>
+            <p>Ensure you give Hanni Bot webhook and embed permissions to send notifications.</p>
+            <p>For full commands, use `.help` (admin perms required).</p>
+            <p>I love seeing your support—thank you! 😊 (I love you if you see this! ❤️)</p>
         </div>
     </footer>
+
 </body>
 </html>
