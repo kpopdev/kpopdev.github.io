@@ -6,33 +6,37 @@ on:
       - main
 
 jobs:
-  build:
+  generate:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout repository
+      - name: Checkout repo
         uses: actions/checkout@v3
-        with:
-          persist-credentials: false  # disable GITHUB_TOKEN
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
 
-      - name: Install sitemap_generator gem
+      - name: Install sitemap_generator
         run: gem install sitemap_generator
 
       - name: Generate sitemap
-        run: ruby Rakefile
+        run: |
+          echo "require 'sitemap_generator'
 
-      - name: Commit and push sitemap
-        env:
-          TOKEN: ${{ secrets.PUSH_TOKEN }}
+SitemapGenerator::Sitemap.default_host = 'https://kpopdev.github.io'
+SitemapGenerator::Sitemap.public_path = File.dirname(__FILE__)
+SitemapGenerator::Sitemap.create do
+  add '/', changefreq: 'weekly', priority: 1.0
+end" > Rakefile
+          ruby Rakefile
+
+      - name: Commit sitemap
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git remote set-url origin https://x-access-token:${TOKEN}@github.com/kpopdev/kpopdev.github.io.git
           git add sitemap.xml.gz
           git commit -m "Generate sitemap" || echo "No changes to commit"
-          git push origin main
+          git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
