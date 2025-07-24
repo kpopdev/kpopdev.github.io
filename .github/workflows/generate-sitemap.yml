@@ -25,21 +25,35 @@ jobs:
         with:
           ruby-version: '3.2' # Use a specific Ruby version
 
-      - name: Install sitemap_generator gem and add to PATH
+      - name: Install sitemap_generator gem
         run: |
-          # Install sitemap_generator gem
           gem install sitemap_generator
           
-          # Add the gem's executable directory to the PATH
-          # This ensures that commands like 'sitemap_generator' are found
-          echo "$(gem environment gemdir)/bin" >> $GITHUB_PATH
-          # Also adding the specific Ruby version's bin directory just in case
-          echo "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin" >> $GITHUB_PATH # Hardcoding for 3.2.8 as seen in logs
+          # Debugging: List contents of the gem directory to understand structure
+          echo "Contents of gemdir:"
+          ls -R "$(gem environment gemdir)" || true # Use || true to prevent job failure if empty
 
       - name: Generate Sitemap
         run: |
-          # Now, sitemap_generator command should be directly callable
-          sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+          # Dynamically find the sitemap_generator executable using find and grep
+          # This should be highly reliable as it searches the actual gem installation path
+          RUBY_GEMS_PATH=$(gem environment gemdir)
+          SITEMAP_GEN_PATH=$(find "$RUBY_GEMS_PATH" -type f -name "sitemap_generator" -perm /u+x,g+x,o+x | head -n 1)
+
+          # Check if SITEMAP_GEN_PATH is empty
+          if [ -z "$SITEMAP_GEN_PATH" ]; then
+            echo "Error: sitemap_generator executable not found after installation. Searched in: $RUBY_GEMS_PATH"
+            # Attempt to list contents of likely bin directories for debugging
+            echo "Attempting to list bin directories for debugging:"
+            ls -al "$RUBY_GEMS_PATH"/bin/ || true
+            ls -al "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin/" || true # Specific path from previous logs
+            exit 1 # Exit with error code
+          fi
+
+          echo "Found sitemap_generator executable at: $SITEMAP_GEN_PATH"
+          
+          # Generate sitemap - Directly calling the executable using its full path
+          "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
           # Ensure sitemap.xml is created in the root directory for deployment
 
       - name: Commit and Push Sitemap
