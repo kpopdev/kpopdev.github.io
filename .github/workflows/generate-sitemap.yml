@@ -25,23 +25,21 @@ jobs:
         with:
           ruby-version: '3.2' # Use a specific Ruby version
 
-      - name: Generate Sitemap
+      - name: Install sitemap_generator gem and add to PATH
         run: |
           # Install sitemap_generator gem
           gem install sitemap_generator
+          
+          # Add the gem's executable directory to the PATH
+          # This ensures that commands like 'sitemap_generator' are found
+          echo "$(gem environment gemdir)/bin" >> $GITHUB_PATH
+          # Also adding the specific Ruby version's bin directory just in case
+          echo "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin" >> $GITHUB_PATH # Hardcoding for 3.2.8 as seen in logs
 
-          # Find the exact path to the sitemap_generator executable using 'gem contents'
-          # This command lists all files installed by a gem and we filter for the executable.
-          SITEMAP_GEN_PATH=$(gem contents sitemap_generator --show-executables | head -n 1)
-
-          # Check if SITEMAP_GEN_PATH is empty (meaning executable not found)
-          if [ -z "$SITEMAP_GEN_PATH" ]; then
-            echo "Error: sitemap_generator executable not found after installation."
-            exit 1
-          fi
-
-          # Generate sitemap - Directly calling the executable using its full path
-          "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+      - name: Generate Sitemap
+        run: |
+          # Now, sitemap_generator command should be directly callable
+          sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
           # Ensure sitemap.xml is created in the root directory for deployment
 
       - name: Commit and Push Sitemap
