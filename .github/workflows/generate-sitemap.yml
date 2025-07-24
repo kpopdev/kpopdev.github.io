@@ -20,21 +20,23 @@ jobs:
         with:
           fetch-depth: 0 
 
-      - name: Setup Ruby and Bundler
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: '3.2' # Use a specific Ruby version (e.g., matching ubuntu's default or a common one)
-          bundler-cache: true # Installs gems defined in Gemfile, or ensures Bundler is available
+          # Removed bundler-cache as it requires a Gemfile, which we don't have
 
       - name: Generate Sitemap
         run: |
-          # Install sitemap_generator gem if not already done by bundler-cache
-          # (This step might be redundant if bundler-cache works, but acts as a fallback)
+          # Install sitemap_generator gem
           gem install sitemap_generator
 
-          # Generate sitemap - NOW using bundle exec
-          # bundle exec ensures the command is found within the gem's context
-          bundle exec sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+          # Locate the sitemap_generator executable path
+          # This command finds where the gem executable is installed
+          SITEMAP_GEN_PATH=$(gem environment gemdir)/gems/sitemap_generator-*/exe/sitemap_generator
+
+          # Generate sitemap - Directly calling the executable using its full path
+          "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
           # Ensure sitemap.xml is created in the root directory for deployment
 
       - name: Commit and Push Sitemap
