@@ -4,107 +4,37 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch: # Allows manual trigger
+  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Needed for committing the sitemap
-      pages: write # Needed if you also want to use it for deploying pages
-      id-token: write # Needed for OIDC if using custom domains/advanced setup
+      contents: write
+      pages: write
+      id-token: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 
+          fetch-depth: 0
 
-      - name: Setup Ruby environment
+      - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.2' # Use a specific Ruby version (matching runner's default)
+          ruby-version: '3.2'
 
-      - name: Install sitemap_generator gem and locate executable
-        id: locate_executable # Add an ID to this step to access its outputs
+      - name: Install sitemap_generator gem
         run: |
-          gem install sitemap_generator
-          
-          echo "--- Debugging PATH and Executable Location ---"
-          echo "Current PATH: $PATH"
-          which ruby || echo "ruby command not found." # Confirm ruby is on PATH
-          
-          # List common gem executable directories
-          GEM_HOME=$(gem environment gemhome)
-          GEM_PATH=$(gem environment gempath)
-          
-          echo "GEM_HOME: $GEM_HOME"
-          echo "GEM_PATH: $GEM_PATH"
-          
-          echo "Listing contents of common gem bin directories:"
-          ls -al "${GEM_HOME}/bin/" || true
-          ls -al "${GEM_PATH/://}/bin/" || true # Handle multiple paths in GEM_PATH if any
-          ls -al "/usr/local/bin/" || true # Common system bin
-          ls -al "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin/" || true # Specific path from previous logs
-
-          # Attempt to find the executable path robustly
-          SITEMAP_GEN_PATH=""
-
-          # 1. Try `which` first (most straightforward if it's there)
-          SITEMAP_GEN_PATH=$(which sitemap_generator 2>/dev/null || true)
-          if [ -n "$SITEMAP_GEN_PATH" ]; then
-            echo "Found with 'which': $SITEMAP_GEN_PATH"
-          else
-            echo "sitemap_generator not found with 'which'."
-            
-            # 2. Try looking in gem's own bin directory (most common for gems)
-            if [ -d "${GEM_HOME}/bin" ]; then
-              if [ -x "${GEM_HOME}/bin/sitemap_generator" ]; then
-                SITEMAP_GEN_PATH="${GEM_HOME}/bin/sitemap_generator"
-                echo "Found in GEM_HOME/bin: $SITEMAP_GEN_PATH"
-              fi
-            fi
-
-            # 3. Try looking in a specific hosted toolcache bin (based on logs)
-            if [ -z "$SITEMAP_GEN_PATH" ] && [ -d "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin" ]; then
-                if [ -x "/opt/hostedtoolcache/Ruby/3.2.8/x64/bin/sitemap_generator" ]; then
-                    SITEMAP_GEN_PATH="/opt/hostedtoolcache/Ruby/3.2.8/x64/bin/sitemap_generator"
-                    echo "Found in hostedtoolcache bin: $SITEMAP_GEN_PATH"
-                fi
-            fi
-            
-            # 4. Fallback: Search the entire gem path for an executable named 'sitemap_generator'
-            if [ -z "$SITEMAP_GEN_PATH" ]; then
-                SITEMAP_GEN_PATH=$(find "$GEM_HOME" -type f -name "sitemap_generator" -perm /u+x,g+x,o+x 2>/dev/null | head -n 1)
-                if [ -n "$SITEMAP_GEN_PATH" ]; then
-                    echo "Found with 'find': $SITEMAP_GEN_PATH"
-                else
-                    echo "Executable 'sitemap_generator' not found via 'find' within GEM_HOME either."
-                fi
-            fi
-          fi
-
-          # Output the found path for use in the next step
-          if [ -n "$SITEMAP_GEN_PATH" ]; then
-            echo "FINAL_SITEMAP_GEN_PATH=$SITEMAP_GEN_PATH" >> "$GITHUB_OUTPUT"
-            echo "Successfully identified sitemap_generator executable."
-          else
-            echo "::error::sitemap_generator executable could not be definitively located."
-            exit 1 # Fail the step if not found
-          fi
+          gem install sitemap_generator --no-document
+          echo "$(ruby -e 'puts Gem.bindir')" >> $GITHUB_PATH
 
       - name: Generate Sitemap
-        # Get the executable path from the previous step's output
         run: |
-          SITEMAP_GEN_PATH="${{ steps.locate_executable.outputs.FINAL_SITEMAP_GEN_PATH }}"
-          if [ -z "$SITEMAP_GEN_PATH" ]; then
-            echo "Error: Sitemap generator path not passed from previous step."
-            exit 1
-          fi
-          
-          echo "Attempting to run sitemap_generator from: $SITEMAP_GEN_PATH"
-          "$SITEMAP_GEN_PATH" --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
-          # Ensure sitemap.xml is created in the root directory for deployment
+          echo "Running sitemap_generator..."
+          sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+          ls -l sitemap.xml
 
       - name: Commit and Push Sitemap
         uses: stefanzweifel/git-auto-commit-action@v5
