@@ -6,10 +6,10 @@ on:
       - main
 
 jobs:
-  generate:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Set up Ruby
@@ -21,15 +21,7 @@ jobs:
         run: gem install sitemap_generator
 
       - name: Generate sitemap
-        run: |
-          echo "require 'sitemap_generator'
-
-SitemapGenerator::Sitemap.default_host = 'https://kpopdev.github.io'
-SitemapGenerator::Sitemap.public_path = File.dirname(__FILE__)
-SitemapGenerator::Sitemap.create do
-  add '/', changefreq: 'weekly', priority: 1.0
-end" > Rakefile
-          ruby Rakefile
+        run: ruby Rakefile
 
       - name: Commit sitemap
         run: |
