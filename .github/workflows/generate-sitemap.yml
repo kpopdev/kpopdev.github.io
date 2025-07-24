@@ -10,24 +10,27 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: true
+          token: ${{ secrets.GITHUB_TOKEN }}
 
-      - name: Setup Ruby
+      - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.2
 
-      - name: Install Gems
+      - name: Install sitemap_generator gem
         run: gem install sitemap_generator
 
-      - name: Generate Sitemap
+      - name: Generate sitemap
         run: ruby Rakefile
 
-      - name: Commit Sitemap
+      - name: Commit and push sitemap
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add sitemap.xml.gz
-          git commit -m "Generate sitemap"
+          git commit -m "Generate sitemap" || echo "No changes to commit"
           git push
