@@ -9,13 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write # Explicitly grant write permissions for committing the sitemap
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Generate Sitemap
-        # Using the specific commit SHA for v2.1.1 to ensure resolution
-        uses: cicirello/generate-sitemap@d9980d0d599c26f2a2f8c5c7d0d0c3d9b0f0b0b0 # This is the SHA for v2.1.1 as of July 2025
+        # Reverting to the v2 tag, which should generally be stable and resolvable
+        uses: cicirello/generate-sitemap@v2
         with:
           base-url: "https://kpopdev.github.io/"
           output-file: "sitemap.xml"
