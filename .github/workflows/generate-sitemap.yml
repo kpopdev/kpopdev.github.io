@@ -1,0 +1,28 @@
+name: Generate Sitemap
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Generate Sitemap
+        uses: cicirello/generate-sitemap@v2.1.0
+        with:
+          base-url: "https://kpopdev.github.io/"
+          output-file: "sitemap.xml"
+          exclude: "google55a59fad368515c9.html"
+          include-patterns: |
+            *.html
+          branch: main
+          git-commit: true
+          git-message: "chore: Generate sitemap.xml"
+          git-user-name: "github-actions[bot]"
+          git-user-email: "github-actions[bot]@users.noreply.github.com"
