@@ -29,10 +29,9 @@ jobs:
         run: |
           gem install sitemap_generator --no-document
 
-      - name: Generate Sitemap
+      - name: Run Sitemap via Rake
         run: |
-          echo "Running sitemap_generator using 'ruby -S sitemap_generator'"
-          ruby -S sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+          ruby Rakefile
           ls -l sitemap.xml
 
       - name: Commit and Push Sitemap
