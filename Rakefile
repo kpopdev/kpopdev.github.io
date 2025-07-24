@@ -4,7 +4,7 @@ SitemapGenerator::Sitemap.default_host = 'https://kpopdev.github.io'
 SitemapGenerator::Sitemap.public_path = './'
 SitemapGenerator::Sitemap.sitemaps_path = ''
 SitemapGenerator::Sitemap.create_index = false
-SitemapGenerator::Sitemap.compress = false # ← no .gz file!
+SitemapGenerator::Sitemap.compress = false # ← THIS is critical
 
 SitemapGenerator::Sitemap.create do
   add '/', changefreq: 'weekly', priority: 1.0
