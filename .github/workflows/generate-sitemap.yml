@@ -1,4 +1,4 @@
-name: Generate Sitemap
+name: Generate and Deploy Sitemap
 
 on:
   push:
@@ -10,22 +10,41 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: write # Explicitly grant write permissions for committing the sitemap
+      contents: write # Needed for committing the sitemap
+      pages: write # Needed if you also want to use it for deploying pages
+      id-token: write # Needed for OIDC if using custom domains/advanced setup
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          # This is crucial for peaceiris/actions-gh-pages if you're not using it for full deployment,
+          # it fetches the full history needed for the deploy step.
+          fetch-depth: 0 
 
       - name: Generate Sitemap
-        # Reverting to the v2 tag, which should generally be stable and resolvable
-        uses: cicirello/generate-sitemap@v2
+        run: |
+          # Install sitemap generator
+          sudo apt-get update
+          sudo apt-get install -y ruby-full
+          sudo gem install sitemap_generator
+
+          # Generate sitemap - adjust this command if your site structure is different
+          # Assuming index.html is in the root, and your base URL
+          sitemap_generator --url=https://kpopdev.github.io/ --out-path=./ --filename=sitemap.xml
+          # Ensure sitemap.xml is created in the root directory for deployment
+
+      - name: Commit and Push Sitemap
+        uses: stefanzweifel/git-auto-commit-action@v5 # An action specifically for auto-committing
         with:
-          base-url: "https://kpopdev.github.io/"
-          output-file: "sitemap.xml"
-          exclude: "google55a59fad368515c9.html"
-          include-patterns: |
-            *.html
-          branch: main
-          git-commit: true
-          git-message: "chore: Generate sitemap.xml"
-          git-user-name: "github-actions[bot]"
-          git-user-email: "github-actions[bot]@users.noreply.github.com"
+          commit_message: "chore: Generate and update sitemap.xml"
+          file_pattern: "sitemap.xml" # Only commit the sitemap file
+
+      # Optional: If you want to use this workflow to also deploy your GitHub Pages, uncomment below
+      # - name: Deploy to GitHub Pages
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   if: github.ref == 'refs/heads/main'
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./ # Path to your built site, usually the root for GitHub Pages
+      #     cname: kpopdev.github.io # If you have a custom domain, include it here
