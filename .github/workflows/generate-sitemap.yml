@@ -2,14 +2,13 @@ name: Generate Sitemap
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
+      - name: Checkout
         uses: actions/checkout@v3
 
       - name: Set up Ruby
@@ -28,7 +27,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add sitemap.xml
-          git commit -m "Generate sitemap" || echo "No changes to commit"
+          git commit -m "Generate sitemap" || echo "No changes"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
