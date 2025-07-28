@@ -28,7 +28,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add sitemap.xml.gz # <-- THIS LINE WAS CHANGED
+          git add sitemap.xml.gz # <-- THIS LINE WAS CHANGED to sitemap.xml.gz
           git commit -m "Generate sitemap" || echo "No changes, skipping commit"
           git push
         env:
