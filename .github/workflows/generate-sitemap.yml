@@ -20,14 +20,16 @@ jobs:
         run: gem install sitemap_generator
 
       - name: Generate sitemap
+        # This step will create sitemap.xml.gz because compress is true in Rakefile
         run: ruby Rakefile
 
       - name: Commit sitemap
+        # Now, we are telling git to add sitemap.xml.gz
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-          git add sitemap.xml
-          git commit -m "Generate sitemap" || echo "No changes"
+          git add sitemap.xml.gz # <-- THIS LINE WAS CHANGED
+          git commit -m "Generate sitemap" || echo "No changes, skipping commit"
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }}
