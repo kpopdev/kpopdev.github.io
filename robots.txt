@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://kpopdev.github.io/sitemap.xml
