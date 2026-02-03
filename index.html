@@ -77,6 +77,7 @@
             font-weight: 700;
             text-decoration: none;
             color: white;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         nav ul {
@@ -95,10 +96,12 @@
             text-decoration: none;
             font-weight: 600;
             transition: color 0.3s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
 
         nav ul li a:hover {
-            color: var(--secondary-color);
+            color: #ffffff;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
         header {
@@ -251,6 +254,24 @@
         }
 
         ul li strong {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table th, table td {
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+
+        table th {
+            background: var(--light-bg);
             color: var(--primary-color);
             font-weight: 600;
         }
@@ -448,6 +469,14 @@
             color: var(--primary-color);
         }
 
+        .note {
+            background: var(--light-bg);
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+            border-left: 5px solid var(--primary-color);
+        }
+
         /* Animation for sections */
         .section-card {
             opacity: 0;
@@ -483,6 +512,7 @@
         <div class="container">
             <h1>Hanni Bot - Your Ultimate Discord Companion! 🚀</h1>
             <p>Discover the fastest, most feature-rich Discord bot trusted by over 1,000,000 users worldwide. Perfect for K-pop enthusiasts, streamers, and social media lovers.</p>
+            <p><strong>Have a custom feature or bot in mind? Message <code>@kylauwu</code> on Discord to request it!</strong></p>
             <div class="header-actions">
                 <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" class="btn primary">Add Hanni Bot to Your Server</a>
                 <a href="https://discord.gg/mXSDAv3ygJ" class="btn">Join Our Support Server</a>
@@ -522,39 +552,204 @@
 
         <section id="notifications" class="section-card">
             <h2>✨ Stay Ahead with Instant Notifications & Updates!</h2>
-            <p>Never miss a moment from your favorite platforms. Set up real-time alerts with these commands:</p>
-            <ul>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>YouTube:</strong> <span class="description">.tube add</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576634180_01afd4ef40_b.jpg" target="_blank">[Preview]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Instagram:</strong> <span class="description">.insta add</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576531209_79fded63f5_z.jpg" target="_blank">[Preview]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Instagram (Faster):</strong> <span class="description">.insta2 add (Lightning-fast post delivery!)</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>TikTok:</strong> <span class="description">.tiktok add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Weverse:</strong> <span class="description">.weverse add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Weverse Live:</strong> <span class="description">.weverselive add (For live updates)</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Weverse Comments:</strong> <span class="description">.weversecomment add (For idol comments)</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>YouTube Posts:</strong> <span class="description">.ytposts add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Bilibili:</strong> <span class="description">.bilibili add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Twitter (VIP):</strong> <span class="description">.twitter add</span> <span class="preview-links"><strong>VIP Exclusive:</strong> .weibo (Super-fast Weibo notifications) <a href="https://live.staticflickr.com/65535/53576652740_5f35f7ddfe_b.jpg" target="_blank">[Preview]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Twitter (Free):</strong> <span class="description">.freetwitter add (Top-tier Twitter notifications for everyone!)</span> <span class="preview-links"><a href="https://www.youtube.com/embed/zXFWhGqFvTA" target="_blank">[Preview]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>K-Pop Schedule:</strong> <span class="description">.kupdate add (Free, supports select groups—view list with .kupdate add list)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576527229_9cdba1c5ba_b.jpg" target="_blank">[Preview]</a> <a href="https://live.staticflickr.com/65535/53576528904_73abafc3c4_b.jpg" target="_blank">[How-to]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Reddit:</strong> <span class="description">.reddit add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Facebook:</strong> <span class="description">.facebook add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Tumblr:</strong> <span class="description">.tumblr add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Allkpop:</strong> <span class="description">.allkpop add (Stay updated with allkpop.com)</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>Fancafe:</strong> <span class="description">.fancafe add</span></li>
-                <li class="command-list-item"><i class="fas fa-bell"></i><strong>JYP Fans App:</strong> <span class="description">.jypfans add <strong>NEW!</strong></span></li>
-            </ul>
+            <p>Never miss a beat from your favorite platforms. Just use these simple commands to set up instant notifications in your server.</p>
+            
+            <h3>🔔 General Notifications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Command</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>YouTube</strong></td>
+                        <td><code>.tube add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram</strong></td>
+                        <td><code>.insta add</code></td>
+                        <td>Post only instagram bot.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram New</strong></td>
+                        <td><code>.insta2</code></td>
+                        <td>Instant instagram post, story, live notification bot!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok</strong></td>
+                        <td><code>.tiktok add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weverse</strong></td>
+                        <td><code>.weverse add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube Posts</strong></td>
+                        <td><code>.ytposts add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bilibili</strong></td>
+                        <td><code>.bilibili add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Twitter</strong></td>
+                        <td><code>.twitter add</code></td>
+                        <td>X instant notification bot.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reddit</strong></td>
+                        <td><code>.reddit add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Facebook</strong></td>
+                        <td><code>.facebook add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Tumblr</strong></td>
+                        <td><code>.tumblr add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Allkpop</strong></td>
+                        <td><code>.allkpop add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Fancafe</strong></td>
+                        <td><code>.fancafe add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>JYP Fans App</strong></td>
+                        <td><code>.jypfans add</code></td>
+                        <td><strong>NEW!</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <p><strong>💡 Pro Tip for Adding Notifications:</strong> Don't use <code>@</code> or <code>#</code> in usernames. For example, use <code>.insta2 add official_everglow</code>.</p>
+            </div>
+
+            <h3>⚡ Lightning-Fast & Tiered Notifications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Command</th>
+                        <th>Features</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Instagram (Fast)</strong></td>
+                        <td><code>.insta2 add</code></td>
+                        <td>Lightning-fast post/story delivery!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weibo VIP</strong></td>
+                        <td><code>.weibo</code></td>
+                        <td>Super-fast Weibo notifications (VIP Perk)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Twitter Free</strong></td>
+                        <td><code>.freetwitter add</code></td>
+                        <td>Top-tier Twitter notifications for everyone!</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>🎵 K-Pop Specific Notifications</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Command</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Weverse Live</strong></td>
+                        <td><code>.weverselive add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weverse Comments</strong></td>
+                        <td><code>.weversecomment add</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>K-Pop Schedules</strong></td>
+                        <td><code>.kupdate add</code></td>
+                        <td>Free, supports select groups. View the list with <code>.kupdate add list</code></td>
+                    </tr>
+                </tbody>
+            </table>
 
             <h3>🎥 Dedicated Streamer & YouTuber Tools</h3>
-            <p>Receive live alerts for your favorite creators across multiple platforms:</p>
-            <ul>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>Kick:</strong> <span class="description">.kicklive add</span></li>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>TikTok Live:</strong> <span class="description">.tiktoklive add</span></li>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>Twitch:</strong> <span class="description">.twitch add</span></li>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>Trovo:</strong> <span class="description">.trovo add</span></li>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>YouTube Live:</strong> <span class="description">.youtubelive add</span></li>
-                <li class="command-list-item"><i class="fas fa-video"></i><strong>Stationhead:</strong> <span class="description">.stationhead add</span></li>
-            </ul>
-            <p><strong>NEW:</strong> <strong>YouTube Membership</strong>—DM <code>@kylauwu</code> for exclusive access! <a href="https://www.youtube.com/embed/MtRjRdaUr6Q" target="_blank">[Preview]</a></p>
+            <p>Get live alerts for your favorite creators and never miss a stream.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Platform</th>
+                        <th>Command</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Kick</strong></td>
+                        <td><code>.kicklive add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>berriz.in</strong></td>
+                        <td><code>.berriz add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>sooplive</strong></td>
+                        <td><code>.sooplive add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>TikTok Live</strong></td>
+                        <td><code>.tiktoklive add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Twitch</strong></td>
+                        <td><code>.twitch add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Trovo</strong></td>
+                        <td><code>.trovo add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube Live</strong></td>
+                        <td><code>.youtubelive add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Stationhead</strong></td>
+                        <td><code>.stationhead add</code></td>
+                    </tr>
+                    <tr>
+                        <td><strong>YouTube Membership</strong></td>
+                        <td>*DM <code>@kylauwu</code> for exclusive access!*</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="note">
+                <p><strong>⚠️ Note on Notifications:</strong> If a username changes on Instagram or any social media, the bot cannot track it. You must remove the old one and add the new one for the bot to see it again.</p>
+            </div>
+
             <div class="image-gallery">
                 <img src="https://source.unsplash.com/random/400x300/?kpop,notification" alt="K-pop Notification">
                 <img src="https://source.unsplash.com/random/400x300/?streamer,live" alt="Streamer Alert">
@@ -563,32 +758,87 @@
 
         <section id="features" class="section-card">
             <h2>🎉 Explore More Awesome Features!</h2>
-            <p>Hanni Bot offers a wide array of unique tools designed for entertainment and productivity:</p>
+            <p>Hanni Bot is packed with unique and powerful functionalities, from image tools to advanced AI.</p>
+
+            <h3>🖼️ Image & Media Tools</h3>
             <ul>
                 <li class="command-list-item"><i class="fas fa-image"></i><strong>K-Pop Images:</strong> <span class="description">.kimg (Access a stunning HD K-pop gallery)</span></li>
                 <li class="command-list-item"><i class="fas fa-search"></i><strong>Image Search:</strong> <span class="description">.img (Powered by Google Image API)</span></li>
-                <li class="command-list-item"><i class="fab fa-youtube"></i><strong>Youtube:</strong> <span class="description">.yt (Utilizes Google/YouTube API)</span></li>
                 <li class="command-list-item"><i class="fas fa-paint-brush"></i><strong>Image to Art:</strong> <span class="description">.imgtoart (Transform your JPGs into beautiful art)</span></li>
+                <li class="command-list-item"><i class="fas fa-film"></i><strong>YouTube to GIF:</strong> <span class="description">.ytgif (Convert YouTube segments into GIFs, max 10s)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576539269_cd2aa4dd33_z.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><i class="fas fa-text-height"></i><strong>OCR:</strong> <span class="description">.ocr (Extract text from images with ease)</span></li>
+                <li class="command-list-item"><i class="fas fa-camera"></i><strong>Screenshots:</strong> <span class="description">.screenshot (Capture instant website screenshots)</span></li>
+            </ul>
+
+            <h3>🎵 K-Pop & Music Utilities</h3>
+            <ul>
                 <li class="command-list-item"><i class="fas fa-chart-bar"></i><strong>K-Pop Charts:</strong> <span class="description">.kpopchart (All-in-one K-pop chart tracking)</span></li>
                 <li class="command-list-item"><i class="fas fa-laugh"></i><strong>K-Pop Memes:</strong> <span class="description">.kpopmeme (Get your daily dose of K-pop humor)</span></li>
                 <li class="command-list-item"><i class="fas fa-music"></i><strong>K-Pop Releases:</strong> <span class="description">.krelease or .kcomeback (Stay updated on new music)</span></li>
                 <li class="command-list-item"><i class="fas fa-user"></i><strong>Idol Profiles:</strong> <span class="description">.kprofile (Detailed profiles of your favorite idols)</span></li>
                 <li class="command-list-item"><i class="fas fa-scroll"></i><strong>Lyrics:</strong> <span class="description">.lyrics (Find even rare and hard-to-find song lyrics!)</span></li>
-                <li class="command-list-item"><i class="fas fa-magic"></i><strong>Anime AI:</strong> <span class="description">.animeai (Magically turn your images into anime style)</span></li>
-                <li class="command-list-item"><i class="fas fa-film"></i><strong>YouTube to GIF:</strong> <span class="description">.ytgif (Convert YouTube segments into GIFs, max 10s)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576539269_cd2aa4dd33_z.jpg" target="_blank">[Preview]</a></span></li>
-                <li class="command-list-item"><i class="fas fa-text-height"></i><strong>OCR:</strong> <span class="description">.ocr (Extract text from images with ease)</span></li>
-                <li class="command-list-item"><i class="fas fa-camera"></i><strong>Screenshots:</strong> <span class="description">.screenshot (Capture instant website screenshots)</span></li>
-                <li class="command-list-item"><i class="fas fa-book"></i><strong>Wattpad Search:</strong> <span class="description">.wattpad (Discover stories on Wattpad)</span></li>
-                <li class="command-list-item"><i class="fas fa-brain"></i><strong>Wolfram Alpha:</strong> <span class="description">.wolfram (Ask any question and get intelligent answers)</span></li>
-                <li class="command-list-item"><i class="fas fa-id-card"></i><strong>Photocards:</strong> <span class="description">.photocards (Collect and view K-pop photocards)</span></li>
-                <li class="command-list-item"><i class="fas fa-star"></i><strong>Horoscope:</strong> <span class="description">.horoscope (Daily personalized readings)</span></li>
                 <li class="command-list-item"><i class="fas fa-microphone"></i><strong>K-Pop AI Covers:</strong> <span class="description">.kpopsound (Experience AI-generated K-pop covers)</span></li>
-                <li class="command-list-item"><i class="fab fa-twitter"></i><strong>Twitter Stats:</strong> <span class="description">.twitterstats (Live follower counters)</span></li>
-                <li class="command-list-item"><i class="fab fa-instagram"></i><strong>Instagram Stats:</strong> <span class="description">.instastats</span></li>
-                <li class="command-list-item"><i class="fab fa-discord"></i><strong>Discord Avatars:</strong> <span class="description">.discordavatar (Retrieve avatars/banners by ID, even from outside your server!)</span></li>
-                <li class="command-list-item"><i class="fas fa-gift"></i><strong>GIF Search:</strong> <span class="description">.gifsearch <idolname> (Find GIFs of your favorite idols)</span></li>
-                <li class="command-list-item"><i class="fas fa-clock"></i><strong>Bump Reminder:</strong> <span class="description">.bumpreminder (Never forget to bump your server on Disboard!)</span> <span class="preview-links"><a href="https://live.staticflickr.com/65535/53576540749_3b4346b8d2_b.jpg" target="_blank">[Preview]</a></span></li>
+                <li class="command-list-item"><i class="fas fa-id-card"></i><strong>Photocards:</strong> <span class="description">.photocards (Collect and view K-pop photocards)</span></li>
             </ul>
+
+            <h3>🔎 Information & Utility</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Command</th>
+                        <th>Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Youtube Search</strong></td>
+                        <td><code>.yt</code></td>
+                        <td>Utilizes Google/YouTube API</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wattpad Search</strong></td>
+                        <td><code>.wattpad</code></td>
+                        <td>Discover stories on Wattpad</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wolfram Alpha</strong></td>
+                        <td><code>.wolfram</code></td>
+                        <td>Ask any question and get intelligent answers</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Horoscope</strong></td>
+                        <td><code>.horoscope</code></td>
+                        <td>Daily personalized readings</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Twitter Stats</strong></td>
+                        <td><code>.twitterstats</code></td>
+                        <td>Live follower counters</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Instagram Stats</strong></td>
+                        <td><code>.instastats</code></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td><strong>Discord Avatars</strong></td>
+                        <td><code>.davatar</code></td>
+                        <td>Retrieve avatars/banners by ID, even from outside your server!</td>
+                    </tr>
+                    <tr>
+                        <td><strong>GIF Search</strong></td>
+                        <td><code>.gifsearch</code></td>
+                        <td>Find GIFs of your favorite idols</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Bump Reminder</strong></td>
+                        <td><code>.bumpreminder</code></td>
+                        <td>Never forget to bump your server on Disboard!</td>
+                    </tr>
+                </tbody>
+            </table>
+
             <div class="image-gallery">
                 <img src="https://source.unsplash.com/random/400x300/?kpop,meme" alt="K-pop Meme">
                 <img src="https://source.unsplash.com/random/400x300/?kpop,chart" alt="K-pop Chart">
@@ -602,9 +852,10 @@
             <ul>
                 <li class="command-list-item"><i class="fas fa-robot"></i><strong>Chat with AI:</strong> <span class="description">.askgpt how are you? (Engage in intelligent conversations)</span></li>
                 <li class="command-list-item"><i class="fas fa-palette"></i><strong>Image Generator:</strong> <span class="description">.imagine or .imgai (e.g., "anime girl with red eyes" - bring your ideas to life!)</span></li>
+                <li class="command-list-item"><i class="fas fa-magic"></i><strong>Anime AI:</strong> <span class="description">.animeai (Magically turn your images into anime style)</span></li>
             </ul>
             <h3>Chat with K-Pop Idols (AI)</h3>
-            <p>Have fun conversations with AI-powered versions of popular idols!</p>
+            <p>Experience personalized conversations with AI versions of your favorite idols!</p>
             <p>Examples: .hanni how are you?, .jungkook hi!</p>
             <p>Supported idols: .hanni, .heeseung, .hyunjin, .jimin, .jungkook, .karina, .leeknow, .newjeans, .sana, .wonyoung, .yeonjun, .yoongi, .yunjin, .pokemon</p>
             <div class="image-gallery">
@@ -617,17 +868,17 @@
             <h2>📥 Seamless Social Media Downloaders</h2>
             <p>Download content effortlessly from various platforms with high speed and reliability:</p>
             <ul>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>TikTok:</strong> <span class="description">.ttdl <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Instagram:</strong> <span class="description">.igd <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Twitter:</strong> <span class="description">.twd <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>YouTube Shorts:</strong> <span class="description">.svd <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>YouTube Video:</strong> <span class="description">.ytdownloader <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Spotify to MP3:</strong> <span class="description">.spd <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Pinterest:</strong> <span class="description">.pinterest <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Facebook:</strong> <span class="description">.fbdownloader <link></span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Reddit:</strong> <span class="description">.redditdownloader <link> (Widely regarded as the best on Discord!)</span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>Instagram VIP:</strong> <span class="description">.igdvip <link> (Faster downloads, with a cooldown)</span></li>
-                <li class="command-list-item"><i class="fas fa-download"></i><strong>NEW Multi-Platform Downloader:</strong> <span class="description">.dl <link> (Download photos and videos from Instagram, Facebook, TikTok, Bilibili, Reddit, Twitter, Snapchat, and iFunny!)</span> <span class="preview-links"><a href="https://raw.githubusercontent.com/kpopdev/images/refs/heads/main/image.png" target="_blank">[How-to & Review]</a></span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>TikTok:</strong> <span class="description">.ttdl &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Instagram:</strong> <span class="description">.igd &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Twitter:</strong> <span class="description">.twd &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>YouTube Shorts:</strong> <span class="description">.svd &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>YouTube Video:</strong> <span class="description">.ytdownloader &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Spotify to MP3:</strong> <span class="description">.spd &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Pinterest:</strong> <span class="description">.pinterest &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Facebook:</strong> <span class="description">.fbdownloader &lt;link&gt;</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Reddit:</strong> <span class="description">.redditdownloader &lt;link&gt; (Widely regarded as the best on Discord!)</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>Instagram VIP:</strong> <span class="description">.igdvip &lt;link&gt; (Faster downloads, with a cooldown)</span></li>
+                <li class="command-list-item"><i class="fas fa-download"></i><strong>NEW Multi-Platform Downloader:</strong> <span class="description">.dl &lt;link&gt; (Download photos and videos from Instagram, Facebook, TikTok, Bilibili, Reddit, Twitter, Snapchat, and iFunny!)</span> <span class="preview-links"><a href="https://raw.githubusercontent.com/kpopdev/images/refs/heads/main/image.png" target="_blank">[How-to & Review]</a></span></li>
             </ul>
             <div class="image-gallery">
                 <img src="https://source.unsplash.com/random/400x300/?download,social" alt="Social Media Download">
@@ -636,17 +887,17 @@
 
         <section id="games" class="section-card">
             <h2>🎲 Fun K-Pop Games!</h2>
-            <p>Challenge your K-pop knowledge with engaging and interactive games:</p>
+            <p>Test your K-pop knowledge and have a blast with our interactive games:</p>
             <ul>
                 <li class="command-list-item"><i class="fas fa-gamepad"></i><strong>Idol Guessing:</strong> <span class="description">.kpopgg</span></li>
                 <li class="command-list-item"><i class="fas fa-gamepad"></i><strong>Ultimate K-Pop Game:</strong> <span class="description">.kpopgame</span></li>
                 <li class="command-list-item"><i class="fas fa-gamepad"></i><strong>Song Guessing:</strong> <span class="description">.sg</span></li>
                 <li class="command-list-item"><i class="fas fa-gamepad"></i><strong>Bias Battles:</strong> <span class="description">.biasgame</span></li>
             </ul>
-            <h3>K-Pop Card Feature (Beta)</h3>
+            <h3>🃏 K-Pop Card Feature (Beta)</h3>
             <p>Collect, trade, and showcase your K-pop photocards in this exciting beta feature!</p>
             <ul>
-                <li class="command-list-item"><i class="fas fa-cards"></i><strong>Claim:</strong> <span class="description">.claim <group></span></li>
+                <li class="command-list-item"><i class="fas fa-cards"></i><strong>Claim:</strong> <span class="description">.claim &lt;group&gt;</span></li>
                 <li class="command-list-item"><i class="fas fa-eye"></i><strong>View Cards:</strong> <span class="description">.flex</span></li>
                 <li class="command-list-item"><i class="fas fa-exchange-alt"></i><strong>Trade:</strong> <span class="description">.trade</span></li>
                 <li class="command-list-item"><i class="fas fa-gift"></i><strong>Free Claim:</strong> <span class="description">.fc or .freeclaim</span></li>
@@ -659,32 +910,33 @@
 
         <section id="customize" class="section-card">
             <h2>⚙️ Customize Your Hanni Bot Experience</h2>
-            <p>Tailor Hanni Bot to suit your server's unique needs with these customization options:</p>
+            <p>Personalize Hanni Bot to perfectly fit your server's needs:</p>
             <ul>
                 <li class="command-list-item"><i class="fas fa-cog"></i><strong>Change Prefix:</strong> <span class="description">.set serverprefix ! (Example: Changes prefix to !)</span></li>
                 <li class="command-list-item"><i class="fas fa-question"></i><strong>Check Prefix:</strong> <span class="description">Simply ping @Hanni 🐰#9906 to see the current prefix.</span></li>
-                <li class="command-list-item"><i class="fas fa-lock"></i><strong>Disable Commands:</strong> <span class="description">.permissions addserverrule deny hanni <channel_ID_or_ping> (Control command usage by channel or user)</span></li>
+                <li class="command-list-item"><i class="fas fa-lock"></i><strong>Disable Commands:</strong> <span class="description">.permissions addserverrule deny hanni &lt;channel_ID_or_ping&gt; (Control command usage by channel or user)</span></li>
                 <li class="command-list-item"><i class="fas fa-list"></i><strong>Full Commands List:</strong> <span class="description">.help (Admins only; ensure the bot has webhook/embed permissions for notifications)</span></li>
             </ul>
         </section>
 
         <section id="support" class="section-card">
             <h2>💖 Support Hanni Bot & Get VIP Perks!</h2>
-            <p>Maintaining Hanni Bot's advanced features requires resources. Your support enables us to innovate and keep the bot running smoothly.</p>
+            <p>Hanni Bot's extensive features and 24/7 monitoring involve significant operational costs. Your support helps us grow and keep the bot online for everyone!</p>
             <div class="grid-2-cols">
                 <div>
-                    <h3>Donation Options:</h3>
+                    <h3>Donation Methods:</h3>
                     <ul>
-                        <li><i class="fas fa-dollar-sign"></i><strong>PayPal:</strong> <code>dm me on discord @kylauwu</code></li>
-                        <li><i class="fab fa-bitcoin"></i><strong>BTC on BTC NETWORK:</strong> <code>dm me on discord @kylauwu</code></li>
-                        <li><i class="fab fa-solana"></i><strong>Solana wallet on Solana Network:</strong> <code>dm me on discord @kylauwu</code></li>
+                        <li><i class="fas fa-dollar-sign"></i><strong>PayPal:</strong> <code>dabdab683@gmail.com</code></li>
+                        <li><i class="fab fa-bitcoin"></i><strong>BTC:</strong> <code>18ReTpYqFrA1EM9TGkyJdcQxJDNCu6HwgR</code></li>
+                        <li><i class="fab fa-solana"></i><strong>Solana:</strong> <code>7fckhMsoFKPQnugDhFfdzCuPnAXkFcagVp3B2csPLQ8V</code></li>
                         <li><i class="fas fa-coffee"></i><strong>Ko-fi:</strong> <a href="https://ko-fi.com/kpopdev/tiers" target="_blank">Support Here</a></li>
-                        <li><i class="fas fa-hand-holding-heart"></i><strong>In-Bot:</strong> Use .donate in Discord (View all available donation options)</li>
+                        <li><i class="fas fa-hand-holding-usd"></i><strong>Liberapay:</strong> <a href="https://liberapay.com/kpop/" target="_blank">Support Here</a></li>
+                        <li><i class="fas fa-hand-holding-heart"></i><strong>In-Bot:</strong> Use <code>.donate</code> in Discord (View all available donation options)</li>
                     </ul>
                 </div>
                 <div>
                     <img src="https://raw.githubusercontent.com/kpopdev/kpopdev/refs/heads/main/39e631dcf3a8c87ba024a6520c0a5766.jpg" alt="Profile Banner" style="max-width: 100%; border-radius: 12px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
-                    <p><strong>After donating, DM <code>@kylauwu</code> your server ID to unlock exclusive VIP perks and benefits!</strong></p>
+                    <p><strong>After donating, DM <code>@kylauwu</code> your server ID to unlock exclusive VIP perks and benefits! Ko-fi supporters can also message to add more usernames for all social media notifications.</strong></p>
                 </div>
             </div>
             <h3>VIP Perks Include:</h3>
@@ -698,28 +950,22 @@
 
         <section class="section-card">
             <h2>📢 Important Rules for a Positive Community</h2>
-            <p>We strive to maintain a safe and enjoyable environment for all users. Please follow these guidelines:</p>
-            <ul>
-                <li><i class="fas fa-ban"></i><strong>No spamming</strong> commands. Always wait for the bot's reply to prevent rate limits and potential permanent bans.</li>
-                <li><i class="fas fa-shield-alt"></i><strong>No NSFW</strong> content when using AI features or downloaders. Violators will face immediate and permanent bans.</li>
-                <li><i class="fas fa-file-contract"></i><strong>Follow Terms of Service:</strong>
-                    <ul>
-                        <li><a href="https://www.youtube.com/static_html/yt_terms_html" target="_blank">YouTube TOS</a></li>
-                        <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <p>To ensure a smooth and enjoyable experience for all users, please adhere to these rules:</p>
+            <ol>
+                <li><strong>No spamming commands.</strong> Always wait for the bot's reply to prevent rate limits and potential permanent bans.</li>
+                <li>Please follow all Discord Terms of Service.</li>
+                <li><strong>Follow all Linked Terms of Service:</strong> <a href="https://www.youtube.com/static?template=terms" target="_blank">YouTube TOS</a> and <a href="https://www.google.com/policies/privacy/" target="_blank">Google Privacy Policy</a>.</li>
+            </ol>
         </section>
 
         <section class="section-card">
             <h2>🌟 Join Our Vibrant Community!</h2>
-            <p>Connect with fellow users, get help, and stay updated on the latest developments:</p>
+            <p>Connect with other Hanni Bot users, get support, and share your feedback:</p>
             <ul>
-                <li><i class="fas fa-users"></i><strong>Support Server:</strong> <a href="https://discord.gg/kpop-1051507698782441565" target="_blank">Join Here</a> (Report bugs, ask questions, or get assistance!)</li>
-                <li><i class="fas fa-user-plus"></i><strong>Add Owner:</strong> <a href="https://discord.com/users/1041903492400435261" target="_blank">Click Here</a></li>
-                <li><i class="fas fa-envelope"></i><strong>DM Me Directly:</strong> <code>@kylauwu</code> on Discord</li>
+                <li><i class="fas fa-users"></i><strong>Support Server:</strong> <a href="https://discord.gg/mXSDAv3ygJ" target="_blank">Join Here</a> (Report bugs, ask questions, or get assistance!)</li>
+                <li><i class="fas fa-envelope"></i><strong>DM Owner Directly:</strong> <code>@kylauwu</code> on Discord</li>
             </ul>
-            <p><strong>Hanni Bot is built using official APIs from YouTube, Instagram, Twitter, Twitch, and more for unmatched reliability. We're dedicated to providing the best Discord experience—your feedback drives our innovation!</strong></p>
+            <p><strong>Hanni Bot is meticulously crafted with official APIs from YouTube, Instagram, Twitter, Twitch, and many more, ensuring reliability and top-tier performance. We've poured our dedication into making this the ultimate Discord bot—your support helps us continue to innovate and expand!</strong></p>
             <div class="image-gallery">
                 <img src="https://source.unsplash.com/random/400x300/?community,discord" alt="Discord Community">
             </div>
@@ -727,7 +973,7 @@
 
         <section id="about" class="section-card">
             <div class="about-me-profile">
-                <img src="https://avatars.githubusercontent.com/u/1041903492400435261?v=4" alt="Kyla's Profile Picture"> <!-- Replace with your actual GitHub avatar ID if needed -->
+                <img src="https://avatars.githubusercontent.com/u/28566705?v=4" alt="Kyla's Profile Picture">
                 <h2>Kyla (kpopdev) 👋</h2>
                 <p>Hello! I'm Kyla, the creator of Hanni Bot—the premier Discord bot for notifications, AI interactions, and media downloads, serving over 1,000,000 users across 10,000+ servers. Passionate about K-pop and technology, I build tools that bring joy to fans worldwide. ❤️🐍🤖</p>
                 <a href="https://ko-fi.com/G2G314VFD" target="_blank"><img src="https://ko-fi.com/img/githubbutton_sm.svg" alt="ko-fi" style="height: 40px; margin-top: 20px;"></a>
@@ -741,7 +987,7 @@
                 <li><i class="fas fa-music"></i>🎵 K-pop inspires my features!</li>
                 <li><i class="fas fa-globe"></i>🌐 Fluent in Korean, English, and West Slavic languages.</li>
                 <li><i class="fas fa-envelope"></i>📫 Discord: @kylauwu</li>
-                <li><i class="fas fa-link"></i>🌐 <a href="https://discord.gg/kpop-1051507698782441565" target="_blank">Support Server</a> | <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" target="_blank">Add Bot</a></li>
+                <li><i class="fas fa-link"></i>🌐 <a href="https://discord.gg/mXSDAv3ygJ" target="_blank">Support Server</a> | <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123" target="_blank">Add Bot</a></li>
             </ul>
 
             <h3>My Skills</h3>
@@ -770,34 +1016,9 @@
             <h3>Connect With Me</h3>
             <div class="social-icons">
                 <a href="https://discord.com/users/1041903492400435261" target="_blank" title="Discord Profile"><i class="fab fa-discord"></i></a>
-                <a href="https://discord.gg/kpop-1051507698782441565" target="_blank" title="Support Server"><i class="fab fa-discord"></i></a>
+                <a href="https://discord.gg/mXSDAv3ygJ" target="_blank" title="Support Server"><i class="fab fa-discord"></i></a>
                 <a href="https://ko-fi.com/kpopdev" target="_blank" title="Ko-fi"><i class="fas fa-coffee"></i></a>
                 <a href="https://liberapay.com/kpop" target="_blank" title="Liberapay"><i class="fas fa-hand-holding-usd"></i></a>
-            </div>
-        </section>
-
-        <section class="section-card">
-            <h2>YouTube Feeds API by Kyla ❤️</h2>
-            <p>Explore my YouTube Feeds API for fast and reliable video retrieval from channels:</p>
-            <ul>
-                <li><i class="fas fa-video"></i>Get all videos from a YouTube channel.</li>
-                <li><i class="fas fa-bolt"></i>Fastest YouTube API available.</li>
-                <li><i class="fas fa-check-circle"></i>Reliable, working 24/7.</li>
-            </ul>
-            <p>Documentation: <a href="https://platform.sulu.sh/apis/hanni-bot/youtube-feeds/readme" target="_blank">YouTube Feeds API</a></p>
-
-            <h3>Watch Hanni Bot in Action</h3>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/nX8LcdALC_c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/FvzlnJQ3Zwc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/LAP1tkvG9MU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/u3O3G0CpXEc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
         </section>
 
@@ -814,6 +1035,22 @@
             </ul>
             <p>After donating, message <code>@kylauwu</code> with your server ID.</p>
             <p class="small-text"><strong>Note:</strong> Adhere to Google/YouTube TOS (<a href="https://www.youtube.com/static_html/yt_terms_html" target="_blank">Terms</a>) and <a href="https://www.google.com/policies/privacy/" target="_blank">Privacy Policy</a>. Avoid spam or NSFW content to prevent bans.</p>
+        </section>
+
+        <section class="section-card">
+            <h2>Watch Hanni Bot in Action</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/nX8LcdALC_c" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/FvzlnJQ3Zwc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/LAP1tkvG9MU" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/u3O3G0CpXEc" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </section>
 
     </div>
