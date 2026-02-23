@@ -41,8 +41,7 @@
       </p>
       <div class="flex flex-wrap justify-center gap-4 mt-10">
         <a href="#dns-list" class="px-10 py-5 bg-violet-600 hover:bg-violet-700 rounded-3xl font-semibold text-lg transition flex items-center gap-3">
-          مشاهده لیست DNS
-          <span class="text-xl">↓</span>
+          مشاهده لیست DNS ↓
         </a>
         <button onclick="downloadList()" class="px-10 py-5 border-2 border-zinc-700 hover:border-white rounded-3xl font-semibold text-lg transition">
           دانلود لیست کامل (TXT)
@@ -66,11 +65,11 @@
     <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-6">
       <div>
         <h2 class="text-5xl font-bold tracking-tighter">لیست کامل DNSها</h2>
-        <p id="count" class="text-zinc-400 text-xl mt-2">۱۰۰ DNS</p>
+        <p id="count" class="text-zinc-400 text-xl mt-2">در حال بارگذاری...</p>
       </div>
       <div class="w-full md:w-96">
         <div class="relative">
-          <input id="search" type="text" placeholder="جستجو در DNSها..." 
+          <input id="search" type="text" placeholder="جستجو در DNSها (مثلاً 185.192)" 
                  class="w-full bg-zinc-900 border border-zinc-700 focus:border-violet-500 rounded-3xl px-7 py-5 text-lg outline-none transition">
           <div class="absolute left-7 top-1/2 -translate-y-1/2 text-zinc-500">🔍</div>
         </div>
@@ -78,19 +77,19 @@
     </div>
 
     <div id="dns-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
-      <!-- JS پر می‌کنه -->
+      <!-- اینجا DNSها نمایش داده می‌شوند -->
     </div>
   </section>
 
-  <!-- Support Section -->
+  <!-- Support Section (حمایت) -->
   <div class="max-w-5xl mx-auto px-6 py-16">
     <div class="bg-gradient-to-br from-zinc-900 to-black border border-violet-500/30 rounded-3xl p-10 text-center">
       <div class="text-6xl mb-6">🎮❤️</div>
       <h2 class="text-4xl font-bold mb-4">گیمرهای عزیز!</h2>
       <p class="text-xl text-zinc-300 leading-relaxed max-w-2xl mx-auto">
         با زحمات خیلی زیاد و تست‌های شبانه‌روزی، این ۱۰۰ DNS فوق‌العاده رو براتون جمع‌آوری و میزبانی کردیم.<br>
-        همه چیز کاملاً رایگان است، ولی اگر این لیست بهتون کمک کرد و حال دلتون خواست،<br>
-        <span class="text-violet-400 font-medium">حمایت کوچیکتون</span> بزرگ‌ترین انگیزه‌مونه برای ادامه دادن و به‌روز نگه داشتن لیست.
+        همه چیز کاملاً رایگان است، ولی اگر این لیست بهتون کمک کرد،<br>
+        <span class="text-violet-400 font-medium">حمایت کوچیکتون</span> بزرگ‌ترین انگیزه‌مونه.
       </p>
 
       <div class="mt-10 grid md:grid-cols-3 gap-6 max-w-2xl mx-auto">
@@ -112,32 +111,31 @@
         </div>
       </div>
 
-      <p class="mt-10 text-zinc-400">حتی ۱۰ هزار تومن هم برای ما خیلی ارزش داره ❤️<br>ممنون که همراه گیمرها هستید!</p>
+      <p class="mt-10 text-zinc-400">حتی ۱۰ هزار تومن هم برای ما خیلی ارزش داره ❤️</p>
     </div>
   </div>
 
-  <!-- How to change DNS -->
+  <!-- How to -->
   <section class="bg-zinc-900 py-20">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-4xl font-bold text-center mb-16">چگونه DNS را تغییر دهیم؟</h2>
-      <!-- همون کد قبلی راهنما -->
       <div class="grid md:grid-cols-2 gap-8">
         <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-9">
           <div class="text-6xl mb-8">🪟</div>
           <h3 class="text-3xl font-semibold mb-8">ویندوز ۱۰/۱۱</h3>
-          <ol class="space-y-6 text-zinc-300">
-            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۱</span> روی آیکون شبکه راست‌کلیک → Network and Internet settings</li>
+          <ol class="space-y-6 text-zinc-300 text-lg">
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۱</span> آیکون شبکه راست‌کلیک → Network and Internet settings</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۲</span> Change adapter options</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۳</span> روی اتصال راست‌کلیک → Properties</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۴</span> Internet Protocol Version 4 → Properties</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۵</span> Use the following DNS server addresses را تیک بزنید</li>
-            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۶</span> در CMD: <code class="bg-zinc-900 px-2 py-0.5 rounded">ipconfig /flushdns</code></li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۶</span> CMD: <code class="bg-zinc-900 px-2 py-0.5 rounded">ipconfig /flushdns</code></li>
           </ol>
         </div>
         <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-9">
           <div class="text-6xl mb-8">📱</div>
           <h3 class="text-3xl font-semibold mb-8">اندروید</h3>
-          <ol class="space-y-6 text-zinc-300">
+          <ol class="space-y-6 text-zinc-300 text-lg">
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۱</span> تنظیمات → شبکه و اینترنت → وای‌فای</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۲</span> Modify network</li>
             <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۳</span> Advanced options</li>
@@ -167,23 +165,101 @@
   </div>
 
   <script>
-    // تمام اسکریپت قبلی (loadDNS, copyToClipboard, search, downloadList) دقیقاً مثل قبل هست
-    // فقط دو تابع جدید برای والت اضافه کردم:
+    let allDNS = [];
+
+    async function loadDNS() {
+      try {
+        const response = await fetch('dns-list.json');
+        if (!response.ok) throw new Error('فایل پیدا نشد');
+        const data = await response.json();
+        
+        allDNS = data.dns || [];
+        
+        document.getElementById('last-updated').innerHTML = `
+          آخرین به‌روزرسانی: <span class="font-medium">${data.last_updated || '—'}</span>
+        `;
+        
+        renderDNS(allDNS);
+      } catch (err) {
+        console.error(err);
+        document.getElementById('count').innerHTML = `<span class="text-red-500">خطا در بارگذاری لیست DNS</span>`;
+      }
+    }
+
+    function renderDNS(list) {
+      const grid = document.getElementById('dns-grid');
+      grid.innerHTML = '';
+      
+      list.forEach(ip => {
+        const div = document.createElement('div');
+        div.className = 'dns-card bg-zinc-900 border border-zinc-800 hover:border-violet-500 rounded-3xl p-8 text-center';
+        div.innerHTML = `
+          <div class="mono text-4xl font-bold tracking-widest mb-8 text-white break-all">${ip}</div>
+          <button onclick="copyToClipboard('${ip}', this)" 
+                  class="w-full py-5 bg-violet-600 hover:bg-violet-700 active:scale-95 transition rounded-2xl font-semibold text-xl flex items-center justify-center gap-2">
+            📋 کپی DNS
+          </button>
+        `;
+        grid.appendChild(div);
+      });
+      
+      document.getElementById('count').textContent = `${list.length} DNS`;
+    }
+
+    window.copyToClipboard = function(ip, btn) {
+      navigator.clipboard.writeText(ip).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = `✅ کپی شد!`;
+        btn.disabled = true;
+        showToast(`آدرس ${ip} کپی شد`);
+        
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }, 2200);
+      });
+    };
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = message;
+      toast.classList.remove('hidden');
+      toast.style.opacity = '1';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.classList.add('hidden'), 400);
+      }, 2800);
+    }
+
+    function downloadList() {
+      if (!allDNS.length) return;
+      const text = allDNS.join('\n');
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'dns-iranian-100.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
 
     function copyWallet(el) {
-      navigator.clipboard.writeText(el.textContent).then(() => {
-        showToast("والِت در کلیپ‌بورد کپی شد ✓");
-      });
+      navigator.clipboard.writeText(el.textContent).then(() => showToast("والِت کپی شد ✓"));
     }
 
     function copyDiscord() {
-      navigator.clipboard.writeText("@kylauwu").then(() => {
-        showToast("آیدی دیسکورد کپی شد: @kylauwu");
-      });
+      navigator.clipboard.writeText("@kylauwu").then(() => showToast("آیدی دیسکورد کپی شد: @kylauwu"));
     }
 
-    // بقیه اسکریپت قبلی رو اینجا کپی کن (من برای کوتاه بودن نذاشتم، ولی همون کد قبلی کامل هست)
-    // فقط کافیه اسکریپت قبلی رو از پاسخ قبلی کپی کنی و این دو تابع رو بالای window.onload بذاری.
+    // Search
+    document.getElementById('search').addEventListener('input', function() {
+      const term = this.value.trim().toLowerCase();
+      const filtered = allDNS.filter(ip => ip.toLowerCase().includes(term));
+      renderDNS(filtered);
+    });
+
+    // Load
+    window.onload = loadDNS;
   </script>
 </body>
 </html>
