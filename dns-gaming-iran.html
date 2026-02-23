@@ -4,112 +4,240 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>بهترین DNS ایرانی ۱۴۰۴–۱۴۰۵ | hannibot.ir</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: system-ui, sans-serif; max-width: 1000px; margin: 30px auto; padding: 0 15px; line-height: 1.6; background: #f9f9f9; color: #222; }
-    h1, h2 { color: #c62828; text-align: center; }
-    table { width: 100%; border-collapse: collapse; margin: 30px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.08); }
-    th, td { border: 1px solid #ddd; padding: 14px; text-align: right; }
-    th { background: #c62828; color: white; }
-    tr:nth-child(even) { background: #f8f8f8; }
-    .copy-btn { padding: 6px 12px; margin: 0 5px; background: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 0.95em; }
-    .copy-btn:hover { background: #1565c0; }
-    .copy-btn.copied { background: #388e3c !important; }
-    .loading { text-align: center; font-size: 1.2em; color: #555; margin: 50px 0; }
-    .error { color: #d32f2f; text-align: center; }
-    .tip { background: #fff8e1; padding: 16px; border-radius: 8px; margin: 20px 0; border-right: 5px solid #ffb300; }
+    body { font-family: 'Vazirmatn', system-ui, sans-serif; }
+    .dns-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+    .dns-card:hover { transform: translateY(-8px); box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; }
   </style>
 </head>
-<body>
+<body class="bg-zinc-950 text-zinc-100 min-h-screen">
 
-<h1>بهترین DNSهای ایرانی (به‌روزرسانی خودکار)</h1>
+  <!-- Navbar -->
+  <nav class="border-b border-zinc-800 bg-zinc-900/80 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 bg-gradient-to-br from-violet-500 to-fuchsia-500 rounded-2xl flex items-center justify-center text-3xl">🌐</div>
+        <div class="font-bold text-3xl tracking-tighter">hannibot<span class="text-violet-400">.ir</span></div>
+      </div>
+      <div class="text-xl font-semibold text-zinc-300">بهترین DNSهای ایرانی ۱۴۰۴–۱۴۰۵</div>
+    </div>
+  </nav>
 
-<div class="tip">
-  <strong>نکته:</strong> بهترین DNS بسته به ISP شما (ایرانسل، همراه اول، مخابرات ...) فرق می‌کنه. حتماً تست کنید.
-</div>
+  <!-- Hero -->
+  <header class="bg-gradient-to-br from-zinc-900 via-black to-zinc-950 py-24">
+    <div class="max-w-5xl mx-auto text-center px-6">
+      <div class="inline-flex items-center gap-2 bg-zinc-900 border border-zinc-700 rounded-full px-5 py-2 text-sm mb-6">
+        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span>
+        ۱۰۰ DNS فعال و تست‌شده
+      </div>
+      <h1 class="text-6xl md:text-7xl font-bold tracking-tighter leading-none mb-6">
+        سریع‌ترین DNSهای ایرانی
+      </h1>
+      <p class="text-2xl text-zinc-400 max-w-2xl mx-auto">
+        برای گیمینگ با کمترین پینگ، دانلود سریع و دسترسی کامل به اینترنت بدون تحریم
+      </p>
+      <div class="flex flex-wrap justify-center gap-4 mt-10">
+        <a href="#dns-list" 
+           class="px-10 py-5 bg-violet-600 hover:bg-violet-700 rounded-3xl font-semibold text-lg transition flex items-center gap-3">
+          مشاهده لیست DNS
+          <span class="text-xl">↓</span>
+        </a>
+        <button onclick="downloadList()" 
+                class="px-10 py-5 border-2 border-zinc-700 hover:border-white rounded-3xl font-semibold text-lg transition">
+          دانلود لیست کامل (TXT)
+        </button>
+      </div>
+    </div>
+  </header>
 
-<h2>لیست DNSها (کلیک برای کپی)</h2>
+  <!-- Important Tip -->
+  <div class="max-w-7xl mx-auto px-6 -mt-8 relative z-10">
+    <div class="bg-gradient-to-r from-amber-900/80 to-amber-950 border border-amber-700 rounded-3xl p-8 max-w-3xl mx-auto text-center">
+      <div class="flex justify-center mb-4">
+        <span class="text-5xl">💡</span>
+      </div>
+      <p class="text-xl leading-relaxed">
+        بهترین DNS بسته به ISP شما (مخابرات، ایرانسل، همراه اول، رایتل ...) متفاوت است.<br>
+        <span class="text-emerald-400 font-medium">پیشنهاد من:</span> دو DNS متفاوت از لیست انتخاب کنید — یکی اصلی، یکی ثانویه.
+      </p>
+    </div>
+  </div>
 
-<div id="loading" class="loading">در حال بارگذاری DNSها...</div>
-<div id="error" class="error" style="display:none;"></div>
+  <!-- DNS List Section -->
+  <section id="dns-list" class="max-w-7xl mx-auto px-6 py-20">
+    <div class="flex flex-col md:flex-row items-end justify-between mb-10 gap-6">
+      <div>
+        <h2 class="text-5xl font-bold tracking-tighter">لیست کامل DNSها</h2>
+        <p id="count" class="text-zinc-400 text-xl mt-2">۱۰۰ DNS</p>
+      </div>
+      
+      <div class="w-full md:w-96">
+        <div class="relative">
+          <input id="search" 
+                 type="text" 
+                 placeholder="جستجو در DNSها (مثلاً 185.192)"
+                 class="w-full bg-zinc-900 border border-zinc-700 focus:border-violet-500 rounded-3xl px-7 py-5 text-lg outline-none transition">
+          <div class="absolute left-7 top-1/2 -translate-y-1/2 text-zinc-500">🔍</div>
+        </div>
+      </div>
+    </div>
 
-<table id="dnsTable" style="display:none;">
-  <thead>
-    <tr>
-      <th>نام سرویس</th>
-      <th>DNS اصلی</th>
-      <th>DNS ثانویه</th>
-      <th>بهترین کاربرد</th>
-      <th>کپی</th>
-    </tr>
-  </thead>
-  <tbody id="dnsBody"></tbody>
-</table>
+    <div id="dns-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+      <!-- JS will fill this -->
+    </div>
+  </section>
 
-<footer style="text-align:center; margin-top:60px; color:#777;">
-  آخرین به‌روزرسانی: با هر Commit فایل dns-list.json • ساخته شده توسط hannibot.ir
-</footer>
+  <!-- How to change DNS -->
+  <section class="bg-zinc-900 py-20">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-4xl font-bold text-center mb-16">چگونه DNS را تغییر دهیم؟</h2>
+      
+      <div class="grid md:grid-cols-2 gap-8">
+        <!-- Windows -->
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-9">
+          <div class="text-6xl mb-8">🪟</div>
+          <h3 class="text-3xl font-semibold mb-8">ویندوز ۱۰/۱۱</h3>
+          <ol class="space-y-6 text-zinc-300">
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۱</span> روی آیکون شبکه راست‌کلیک کنید → <strong>Network and Internet settings</strong></li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۲</span> <strong>Change adapter options</strong> را بزنید</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۳</span> روی اتصال خود راست‌کلیک → <strong>Properties</strong></li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۴</span> <strong>Internet Protocol Version 4 (TCP/IPv4)</strong> را انتخاب کنید → Properties</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۵</span> گزینه <strong>Use the following DNS server addresses</strong> را تیک بزنید و DNSها را وارد کنید</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۶</span> در CMD به عنوان Administrator دستور <code class="bg-zinc-900 px-2 py-0.5 rounded">ipconfig /flushdns</code> را اجرا کنید</li>
+          </ol>
+        </div>
 
-<script>
-async function loadDNS() {
-  const loading = document.getElementById('loading');
-  const errorDiv = document.getElementById('error');
-  const table = document.getElementById('dnsTable');
-  const tbody = document.getElementById('dnsBody');
+        <!-- Android -->
+        <div class="bg-zinc-950 border border-zinc-800 rounded-3xl p-9">
+          <div class="text-6xl mb-8">📱</div>
+          <h3 class="text-3xl font-semibold mb-8">اندروید</h3>
+          <ol class="space-y-6 text-zinc-300">
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۱</span> تنظیمات → شبکه و اینترنت → وای‌فای</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۲</span> روی شبکه متصل نگه دارید → Modify network</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۳</span> Advanced options را باز کنید</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۴</span> IP settings را روی <strong>Static</strong> بگذارید</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۵</span> DNS 1 و DNS 2 را وارد کنید</li>
+            <li class="flex gap-4"><span class="font-mono text-violet-400 font-bold">۶</span> Save بزنید</li>
+          </ol>
+        </div>
+      </div>
 
-  try {
-    // مسیر فایل – اگر فایل در ریشه است: 'dns-list.json'
-    // اگر در فولدر data است: 'data/dns-list.json'
-    const response = await fetch('dns-list.json');
+      <p class="text-center text-zinc-500 mt-12 text-lg">
+        برای PS5، Xbox، روتر، iOS و macOS هم راهنما نیاز دارید؟ بگویید تا اضافه کنم.
+      </p>
+    </div>
+  </section>
 
-    if (!response.ok) throw new Error('فایل پیدا نشد یا خطا در بارگذاری');
+  <!-- Footer -->
+  <footer class="bg-black py-12 border-t border-zinc-800">
+    <div class="max-w-7xl mx-auto px-6 text-center">
+      <div id="last-updated" class="text-emerald-400 text-lg mb-3"></div>
+      <div class="text-zinc-400">
+        ساخته شده با ❤️ توسط <a href="https://hannibot.ir" target="_blank" class="hover:text-white transition">hannibot.ir</a>
+      </div>
+      <div class="text-xs text-zinc-600 mt-8">
+        به‌روزرسانی خودکار • فقط کافیه فایل dns-list.json را تغییر بدهید
+      </div>
+    </div>
+  </footer>
 
-    const data = await response.json();
+  <!-- Toast -->
+  <div id="toast" class="hidden fixed bottom-8 left-1/2 -translate-x-1/2 bg-emerald-600 text-white px-8 py-4 rounded-3xl shadow-2xl flex items-center gap-3 text-lg font-medium">
+    <span class="text-2xl">✅</span>
+    <span id="toast-text"></span>
+  </div>
 
-    tbody.innerHTML = ''; // پاک کردن قبلی
+  <script>
+    let allDNS = [];
 
-    data.forEach(item => {
-      const row = document.createElement('tr');
-      row.innerHTML = `
-        <td>${item.service || '—'}</td>
-        <td>${item.primary || '—'}</td>
-        <td>${item.secondary || '—'}</td>
-        <td>${item.best_for || '—'}</td>
-        <td>
-          ${item.primary ? `<button class="copy-btn" data-clipboard="${item.primary}">کپی اصلی</button>` : ''}
-          ${item.secondary ? `<button class="copy-btn" data-clipboard="${item.secondary}">کپی ثانویه</button>` : ''}
-        </td>
-      `;
-      tbody.appendChild(row);
+    async function loadDNS() {
+      try {
+        const response = await fetch('dns-list.json');
+        const data = await response.json();
+        allDNS = data.dns || [];
+        
+        document.getElementById('last-updated').innerHTML = `
+          آخرین به‌روزرسانی: <span class="font-medium">${data.last_updated}</span>
+        `;
+        
+        renderDNS(allDNS);
+      } catch (err) {
+        console.error(err);
+        alert('خطا در بارگذاری لیست DNS. فایل dns-list.json را چک کنید.');
+      }
+    }
+
+    function renderDNS(list) {
+      const grid = document.getElementById('dns-grid');
+      grid.innerHTML = '';
+      
+      list.forEach(ip => {
+        const div = document.createElement('div');
+        div.className = 'dns-card bg-zinc-900 border border-zinc-800 hover:border-violet-500 rounded-3xl p-8 text-center';
+        div.innerHTML = `
+          <div class="mono text-3xl font-medium tracking-widest mb-8 text-white">${ip}</div>
+          <button onclick="copyToClipboard('${ip}', this)" 
+                  class="w-full py-4 bg-violet-600 hover:bg-violet-700 active:scale-95 transition rounded-2xl font-semibold text-lg flex items-center justify-center gap-2">
+            📋 کپی DNS
+          </button>
+        `;
+        grid.appendChild(div);
+      });
+      
+      document.getElementById('count').textContent = `${list.length} DNS`;
+    }
+
+    window.copyToClipboard = function(ip, btn) {
+      navigator.clipboard.writeText(ip).then(() => {
+        const original = btn.innerHTML;
+        btn.innerHTML = `✅ کپی شد`;
+        btn.disabled = true;
+        
+        showToast(`آدرس ${ip} در کلیپ‌بورد کپی شد`);
+        
+        setTimeout(() => {
+          btn.innerHTML = original;
+          btn.disabled = false;
+        }, 2200);
+      });
+    };
+
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-text').textContent = message;
+      toast.classList.remove('hidden');
+      toast.style.opacity = '1';
+      
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        setTimeout(() => toast.classList.add('hidden'), 400);
+      }, 2800);
+    }
+
+    function downloadList() {
+      if (!allDNS.length) return;
+      const text = allDNS.join('\n');
+      const blob = new Blob([text], { type: 'text/plain' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'dns-iranian-100.txt';
+      a.click();
+      URL.revokeObjectURL(url);
+    }
+
+    // Search
+    document.getElementById('search').addEventListener('input', function() {
+      const term = this.value.trim().toLowerCase();
+      const filtered = allDNS.filter(ip => ip.toLowerCase().includes(term));
+      renderDNS(filtered);
     });
 
-    loading.style.display = 'none';
-    table.style.display = 'table';
-  } catch (err) {
-    loading.style.display = 'none';
-    errorDiv.style.display = 'block';
-    errorDiv.textContent = 'خطا در بارگذاری لیست DNS: ' + err.message + ' (فایل dns-list.json را چک کنید)';
-  }
-}
-
-// کپی کردن
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('copy-btn')) {
-    const text = e.target.getAttribute('data-clipboard');
-    navigator.clipboard.writeText(text).then(() => {
-      const original = e.target.textContent;
-      e.target.textContent = 'کپی شد!';
-      e.target.classList.add('copied');
-      setTimeout(() => {
-        e.target.textContent = original;
-        e.target.classList.remove('copied');
-      }, 1800);
-    }).catch(() => alert('کپی نشد – دستی کپی کنید'));
-  }
-});
-
-// بارگذاری موقع باز شدن صفحه
-loadDNS();
-</script>
-
+    // Load on start
+    window.onload = loadDNS;
+  </script>
 </body>
 </html>
