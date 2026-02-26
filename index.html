@@ -94,25 +94,42 @@
             list-style: none;
             margin: 0;
             padding: 0;
+            flex-wrap: wrap;
+            justify-content: flex-end;
         }
 
         nav ul li {
-            margin-left: 20px;
+            margin-left: 10px;
+            margin-bottom: 5px;
         }
 
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 600;
             transition: all 0.3s;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-            padding: 8px 12px;
+            padding: 6px 10px;
             border-radius: 8px;
+            font-size: 0.95em;
         }
 
         nav ul li a:hover {
             background: rgba(255,255,255,0.2);
             transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                justify-content: center;
+            }
+            nav .nav-container {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            nav .logo {
+                margin-bottom: 10px;
+            }
         }
 
         header {
