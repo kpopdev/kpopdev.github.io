@@ -54,10 +54,10 @@
                         hanni: {
                             pink: '#ff4785',
                             purple: '#7000ff',
-                            dark: '#0a0a0d', /* Even softer dark for better readability */
-                            card: '#111116', /* Adjusted card bg for contrast */
-                            border: 'rgba(255, 255, 255, 0.08)', /* Softer borders */
-                            text: '#e5e7eb', /* Brighter text for readability */
+                            dark: '#000000', /* Pure black background for maximum contrast */
+                            card: '#0a0a0a', /* Very dark card bg */
+                            border: 'rgba(255, 255, 255, 0.15)', /* Slightly brighter borders */
+                            text: '#ffffff', /* Pure white text for best readability */
                         }
                     },
                     animation: {
@@ -93,11 +93,11 @@
     <style>
         body {
             background-color: theme('colors.hanni.dark');
-            color: theme('colors.hanni.text'); /* Brighter text for better readability */
+            color: theme('colors.hanni.text'); /* Pure white text */
             overflow-x: hidden;
         }
 
-        /* Enhanced Mesh Background - Softer Glow */
+        /* Mesh Background - Softer */
         .mesh-bg {
             position: fixed;
             top: 0;
@@ -105,28 +105,28 @@
             width: 100vw;
             height: 100vh;
             background: 
-                radial-gradient(circle at 15% 50%, rgba(255, 71, 133, 0.06), transparent 25%),
-                radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.06), transparent 25%);
+                radial-gradient(circle at 15% 50%, rgba(255, 71, 133, 0.03), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(112, 0, 255, 0.03), transparent 25%);
             z-index: -1;
             pointer-events: none;
         }
 
-        /* Enhanced Glass Nav */
+        /* Glass Nav */
         .glass-nav {
-            background: rgba(8, 8, 10, 0.8); /* Slightly darker for contrast */
+            background: rgba(0, 0, 0, 0.85); /* Darker nav for contrast */
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
             border: 1px solid theme('colors.hanni.border');
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7);
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.8);
         }
 
         .nav-link.active {
-            background: rgba(255, 255, 255, 0.08);
-            color: theme('colors.hanni.text');
-            box-shadow: inset 0 1px 1px rgba(255,255,255,0.08);
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            box-shadow: inset 0 1px 1px rgba(255,255,255,0.1);
         }
 
-        /* Enhanced Bento/Glass Cards */
+        /* Bento Cards */
         .bento-card {
             background: theme('colors.hanni.card');
             border: 1px solid theme('colors.hanni.border');
@@ -143,17 +143,17 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, transparent 100%);
+            background: linear-gradient(180deg, rgba(255,255,255,0.02) 0%, transparent 100%);
             pointer-events: none;
         }
 
         .bento-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(255, 71, 133, 0.3);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 50px rgba(255, 71, 133, 0.1);
+            border-color: rgba(255, 71, 133, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7), 0 0 50px rgba(255, 71, 133, 0.15);
         }
 
-        /* Hero Text Gradient */
+        /* Text Gradient */
         .text-gradient {
             background: linear-gradient(135deg, #ff4785 0%, #7000ff 100%);
             -webkit-background-clip: text;
@@ -161,12 +161,12 @@
             color: transparent;
         }
 
-        /* Enhanced Command Badges */
+        /* Command Badges */
         .cmd-badge {
             display: inline-flex;
             align-items: center;
-            background: rgba(0, 0, 0, 0.6);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             padding: 0.3rem 0.8rem;
             border-radius: 0.6rem;
             font-family: 'JetBrains Mono', monospace;
@@ -176,17 +176,17 @@
         }
 
         .bento-card:hover .cmd-badge {
-            border-color: rgba(255, 71, 133, 0.3);
-            background: rgba(255, 71, 133, 0.08);
+            border-color: rgba(255, 71, 133, 0.4);
+            background: rgba(255, 71, 133, 0.1);
         }
 
-        /* Custom Scrollbar Enhanced */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: theme('colors.hanni.dark'); }
-        ::-webkit-scrollbar-thumb { background: #2a2a35; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb { background: #333333; border-radius: 5px; }
         ::-webkit-scrollbar-thumb:hover { background: theme('colors.hanni.pink'); }
 
-        /* Enhanced Scroll Reveal */
+        /* Scroll Reveal */
         .reveal {
             opacity: 0;
             transform: translateY(40px);
@@ -200,6 +200,15 @@
         @media (max-width: 768px) {
             .mobile-nav-text { display: none; }
         }
+
+        /* High Contrast Text Overrides */
+        p, span, h1, h2, h3, h4, h5, h6, a:not(.cmd-badge) {
+            color: #ffffff !important; /* Force white text everywhere for readability */
+        }
+
+        .text-gray-400, .text-gray-300, .text-gray-500 {
+            color: #ffffff !important;
+        }
     </style>
     <script src="https://unpkg.com/lucide@latest"></script>
 </head>
@@ -207,21 +216,21 @@
 
     <div class="mesh-bg"></div>
 
-    <!-- Enhanced Floating Navigation -->
+    <!-- Floating Navigation -->
     <nav class="fixed top-6 left-1/2 -translate-x-1/2 z-50 glass-nav px-2 py-2 rounded-full flex items-center gap-1 md:gap-2 w-[95%] md:w-auto justify-between md:justify-center animate-pulse-glow">
-        <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all flex items-center gap-2 active">
+        <a href="#home" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white hover:text-white transition-all flex items-center gap-2 active">
             <i data-lucide="home" class="w-4 h-4"></i> <span class="mobile-nav-text">Home</span>
         </a>
-        <a href="#features" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="#features" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white hover:text-white transition-all flex items-center gap-2">
             <i data-lucide="sparkles" class="w-4 h-4"></i> <span class="mobile-nav-text">Features</span>
         </a>
-        <a href="#commands" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="#commands" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white hover:text-white transition-all flex items-center gap-2">
             <i data-lucide="terminal" class="w-4 h-4"></i> <span class="mobile-nav-text">Commands</span>
         </a>
-        <a href="#dns" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="#dns" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white hover:text-white transition-all flex items-center gap-2">
             <i data-lucide="globe" class="w-4 h-4"></i> <span class="mobile-nav-text">DNS</span>
         </a>
-        <a href="#donate" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-gray-300 hover:text-white transition-all flex items-center gap-2">
+        <a href="#donate" class="nav-link px-4 py-2 rounded-full text-sm font-medium text-white hover:text-white transition-all flex items-center gap-2">
             <i data-lucide="heart" class="w-4 h-4 text-pink-500/80"></i> <span class="mobile-nav-text">Support</span>
         </a>
         <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123&permissions=8&scope=bot" target="_blank" class="px-5 py-2 rounded-full text-sm font-semibold bg-hanni-pink text-white hover:bg-pink-500 transition-colors flex items-center gap-2 ml-2 shadow-[0_0_20px_rgba(255,71,133,0.4)]">
@@ -229,7 +238,7 @@
         </a>
     </nav>
 
-    <!-- Enhanced Hero Section -->
+    <!-- Hero Section -->
     <main id="home" class="relative min-h-screen flex flex-col items-center justify-center text-center px-4 pt-20">
         <div class="relative w-36 h-36 md:w-44 md:h-44 mb-8 animate-float group">
             <div class="absolute inset-0 bg-hanni-pink blur-[50px] opacity-25 group-hover:opacity-50 transition-opacity duration-500 rounded-full"></div>
@@ -240,7 +249,7 @@
         <h1 class="text-5xl md:text-7xl lg:text-8xl font-extrabold tracking-tight mb-6 text-gradient pb-2">
             Hanni Bot
         </h1>
-        <p class="text-lg md:text-2xl text-gray-300 max-w-2xl mb-10 font-light leading-relaxed">
+        <p class="text-lg md:text-2xl text-white max-w-2xl mb-10 font-light leading-relaxed">
             The ultimate multipurpose Discord bot. <br class="hidden md:block">
             <span class="text-white font-medium">Notification Alerts From Anyone, Lightning-Fast Downloaders, AI Chats, and Best Iranian DNS for Gaming.</span>
         </p>
@@ -255,7 +264,7 @@
         </div>
     </main>
 
-    <!-- DNS Section (Persian) - Enhanced -->
+    <!-- DNS Section (Persian) -->
     <section id="dns" class="py-24 px-4 relative reveal">
         <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-64 bg-hanni-purple blur-[120px] opacity-6 rounded-full pointer-events-none"></div>
         <div class="max-w-5xl mx-auto bento-card p-10 md:p-16 text-center border-t-hanni-purple/30 animate-pulse-glow">
@@ -266,7 +275,7 @@
                 <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">
                     🇮🇷 بهترین DNS ایرانی برای گیمینگ ۱۴۰۴-۱۴۰۵
                 </h2>
-                <p class="text-lg md:text-xl text-gray-300 leading-relaxed mb-10 max-w-3xl mx-auto font-light">
+                <p class="text-lg md:text-xl text-white leading-relaxed mb-10 max-w-3xl mx-auto font-light">
                     سریع‌ترین سرویس DNS برای گیمرهای ایرانی. شامل بیش از ۱۰۰ سرور فوق‌سریع و تست شده با کمترین پینگ برای بازی، دانلودهای پرسرعت و دسترسی بدون محدودیت. کاملاً رایگان با آپدیت‌های روزانه. برای لیست کامل و آموزش، به صفحه اختصاصی DNS مراجعه کنید.
                 </p>
                 <a href="https://hannibot.ir/dns-gaming-iran" class="inline-flex items-center gap-3 px-8 py-4 bg-hanni-purple hover:bg-purple-600 text-white rounded-xl font-bold transition-all shadow-[0_0_20px_rgba(112,0,255,0.3)] hover:-translate-y-1">
@@ -276,7 +285,7 @@
         </div>
     </section>
 
-    <!-- Enhanced Feature Grid -->
+    <!-- Feature Grid -->
     <section id="features" class="py-24 px-4 max-w-7xl mx-auto reveal">
         <div class="text-center mb-16">
             <h2 class="text-sm font-bold tracking-widest text-hanni-pink uppercase mb-3">Why Hanni?</h2>
@@ -287,29 +296,29 @@
             <div class="bento-card p-8">
                 <i data-lucide="bell-ring" class="w-10 h-10 text-hanni-pink mb-6"></i>
                 <h4 class="text-xl font-bold mb-3 text-white">Instant Social Alerts</h4>
-                <p class="text-gray-300 text-sm leading-relaxed">Never miss an update. Lightning fast notifications from YouTube, Instagram, TikTok, Weverse, Bluesky, and more right into your channels.</p>
+                <p class="text-white text-sm leading-relaxed">Never miss an update. Lightning fast notifications from YouTube, Instagram, TikTok, Weverse, Bluesky, and more right into your channels.</p>
             </div>
             <div class="bento-card p-8">
                 <i data-lucide="download-cloud" class="w-10 h-10 text-blue-400 mb-6"></i>
                 <h4 class="text-xl font-bold mb-3 text-white">Universal Downloader</h4>
-                <p class="text-gray-300 text-sm leading-relaxed">Paste a link and get the media. Supports TikTok (no watermark), IG Reels, Reddit, Pinterest, Twitter, Spotify to MP3, and many more platforms.</p>
+                <p class="text-white text-sm leading-relaxed">Paste a link and get the media. Supports TikTok (no watermark), IG Reels, Reddit, Pinterest, Twitter, Spotify to MP3, and many more platforms.</p>
             </div>
             <div class="bento-card p-8">
                 <i data-lucide="bot" class="w-10 h-10 text-hanni-purple mb-6"></i>
                 <h4 class="text-xl font-bold mb-3 text-white">AI Integration & Games</h4>
-                <p class="text-gray-300 text-sm leading-relaxed">Chat with AI idols, play K-Pop games, get horoscopes, and more. Perfect for fun and utility in your server.</p>
+                <p class="text-white text-sm leading-relaxed">Chat with AI idols, play K-Pop games, get horoscopes, and more. Perfect for fun and utility in your server.</p>
             </div>
         </div>
     </section>
 
-    <!-- Enhanced Commands Directory -->
+    <!-- Commands Directory -->
     <section id="commands" class="py-24 px-4 max-w-7xl mx-auto reveal">
         <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
                 <h2 class="text-sm font-bold tracking-widest text-hanni-pink uppercase mb-3">Directory</h2>
                 <h3 class="text-4xl md:text-5xl font-bold text-white">All Bot Commands</h3>
             </div>
-            <p class="text-gray-300 max-w-sm text-sm">Complete list of all available commands and modules. Use prefix or slash commands in Discord. Categories include notifications, downloaders, AI, games, moderation, and more.</p>
+            <p class="text-white max-w-sm text-sm">Complete list of all available commands and modules. Use prefix or slash commands in Discord. Categories include notifications, downloaders, AI, games, moderation, and more.</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
@@ -321,38 +330,38 @@
                     <h3 class="text-2xl font-bold text-white">Notifications</h3>
                 </div>
                 <div class="space-y-4">
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.allkpop</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Posting K-Pop news feeds from allkpop.com</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.berriz</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Berriz Notifier for idol group updates</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.bilibili</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Bilibili subscription commands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.facebook</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Facebook related subcommands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.fancafe</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Fancafe related subcommands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.freetwitter</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">𝕏 related subcommands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.instagram</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Instagram related subcommands (post only)</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.allkpop</span><span class="text-sm text-white group-hover:text-white transition-colors">Posting K-Pop news feeds from allkpop.com</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.berriz</span><span class="text-sm text-white group-hover:text-white transition-colors">Berriz Notifier for idol group updates</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.bilibili</span><span class="text-sm text-white group-hover:text-white transition-colors">Bilibili subscription commands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.facebook</span><span class="text-sm text-white group-hover:text-white transition-colors">Facebook related subcommands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.fancafe</span><span class="text-sm text-white group-hover:text-white transition-colors">Fancafe related subcommands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.freetwitter</span><span class="text-sm text-white group-hover:text-white transition-colors">𝕏 related subcommands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.instagram</span><span class="text-sm text-white group-hover:text-white transition-colors">Instagram related subcommands (post only)</span></div>
                     <div class="flex justify-between items-center group"><span class="cmd-badge border-pink-500/50 text-pink-400">.insta2</span><span class="text-sm text-pink-400/80 font-medium group-hover:text-pink-300 transition-colors">Instagram (Posts, Stories, Lives - Lightning Fast)</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.jypfans</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">JYP Fans Notifier for idol updates</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.kicklive</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Kick updates (Stories, Lives, Posts)</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.kupdate add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Free K-Pop Schedules</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.reddit</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Reddit-related subcommands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.sooplive</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Sooplive notifications</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.stationhead</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Stationhead updates</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktok</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">TikTok notification/update commands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktoklive</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">TikTok live for VIP servers</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.trovo</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Trovo updates (Stories, Lives, Posts)</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tumblr</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Tumblr related subcommands</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitch</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Twitch live stream notifications</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitterpostpw</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Twitter post</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.jypfans</span><span class="text-sm text-white group-hover:text-white transition-colors">JYP Fans Notifier for idol updates</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.kicklive</span><span class="text-sm text-white group-hover:text-white transition-colors">Kick updates (Stories, Lives, Posts)</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.kupdate add</span><span class="text-sm text-white group-hover:text-white transition-colors">Free K-Pop Schedules</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.reddit</span><span class="text-sm text-white group-hover:text-white transition-colors">Reddit-related subcommands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.sooplive</span><span class="text-sm text-white group-hover:text-white transition-colors">Sooplive notifications</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.stationhead</span><span class="text-sm text-white group-hover:text-white transition-colors">Stationhead updates</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktok</span><span class="text-sm text-white group-hover:text-white transition-colors">TikTok notification/update commands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktoklive</span><span class="text-sm text-white group-hover:text-white transition-colors">TikTok live for VIP servers</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.trovo</span><span class="text-sm text-white group-hover:text-white transition-colors">Trovo updates (Stories, Lives, Posts)</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tumblr</span><span class="text-sm text-white group-hover:text-white transition-colors">Tumblr related subcommands</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitch</span><span class="text-sm text-white group-hover:text-white transition-colors">Twitch live stream notifications</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitterpostpw</span><span class="text-sm text-white group-hover:text-white transition-colors">Twitter post</span></div>
                     <div class="flex justify-between items-center group"><span class="cmd-badge text-yellow-500/80 border-yellow-500/20">.weibo</span><span class="text-sm text-yellow-500/80 group-hover:text-yellow-400 transition-colors">VIP Weibo notifications (Super Fast)</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weversecomment add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Weverse Comments</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weversefan</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Weverse fan notifications</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weverselive add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Weverse Live</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.youtubeupdate</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">YouTube channel updates</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.ytposts add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">YouTube Posts</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tube add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">YouTube Video</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktok add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">TikTok</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.bsky add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Bluesky</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weverse add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Weverse Posts</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitter add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Twitter (Standard)</span></div>
-                    <div class="flex justify-between items-center group"><span class="cmd-badge">.freetwitter add</span><span class="text-sm text-gray-400 group-hover:text-gray-200 transition-colors">Free Top-Tier Twitter</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weversecomment add</span><span class="text-sm text-white group-hover:text-white transition-colors">Weverse Comments</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weversefan</span><span class="text-sm text-white group-hover:text-white transition-colors">Weverse fan notifications</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weverselive add</span><span class="text-sm text-white group-hover:text-white transition-colors">Weverse Live</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.youtubeupdate</span><span class="text-sm text-white group-hover:text-white transition-colors">YouTube channel updates</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.ytposts add</span><span class="text-sm text-white group-hover:text-white transition-colors">YouTube Posts</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tube add</span><span class="text-sm text-white group-hover:text-white transition-colors">YouTube Video</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.tiktok add</span><span class="text-sm text-white group-hover:text-white transition-colors">TikTok</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.bsky add</span><span class="text-sm text-white group-hover:text-white transition-colors">Bluesky</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.weverse add</span><span class="text-sm text-white group-hover:text-white transition-colors">Weverse Posts</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.twitter add</span><span class="text-sm text-white group-hover:text-white transition-colors">Twitter (Standard)</span></div>
+                    <div class="flex justify-between items-center group"><span class="cmd-badge">.freetwitter add</span><span class="text-sm text-white group-hover:text-white transition-colors">Free Top-Tier Twitter</span></div>
                 </div>
             </div>
 
@@ -363,19 +372,19 @@
                     <h3 class="text-2xl font-bold text-white">Media Downloaders</h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-4">
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ttdl &lt;link&gt;</span><span class="text-xs text-gray-400">TikTok (No Watermark)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.igd &lt;link&gt;</span><span class="text-xs text-gray-400">Instagram Media</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit text-yellow-500/80 border-yellow-500/20">.igdvip &lt;link&gt;</span><span class="text-xs text-gray-400">Instagram VIP (Faster)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.twd &lt;link&gt;</span><span class="text-xs text-gray-400">Twitter Video</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.svd &lt;link&gt;</span><span class="text-xs text-gray-400">YouTube Shorts</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ytdownloader</span><span class="text-xs text-gray-400">YouTube Full Video</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.spd &lt;link&gt;</span><span class="text-xs text-gray-400">Spotify to MP3</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.pinterest &lt;link&gt;</span><span class="text-xs text-gray-400">Pinterest Images/Video</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.fbdownloader</span><span class="text-xs text-gray-400">Facebook Video</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ttdl &lt;link&gt;</span><span class="text-xs text-white">TikTok (No Watermark)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.igd &lt;link&gt;</span><span class="text-xs text-white">Instagram Media</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit text-yellow-500/80 border-yellow-500/20">.igdvip &lt;link&gt;</span><span class="text-xs text-white">Instagram VIP (Faster)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.twd &lt;link&gt;</span><span class="text-xs text-white">Twitter Video</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.svd &lt;link&gt;</span><span class="text-xs text-white">YouTube Shorts</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ytdownloader</span><span class="text-xs text-white">YouTube Full Video</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.spd &lt;link&gt;</span><span class="text-xs text-white">Spotify to MP3</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.pinterest &lt;link&gt;</span><span class="text-xs text-white">Pinterest Images/Video</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.fbdownloader</span><span class="text-xs text-white">Facebook Video</span></div>
                     <div class="flex flex-col gap-1"><span class="cmd-badge w-fit border-purple-500/40 text-purple-400">.redditdownloader</span><span class="text-xs text-purple-400/80">The Best on Discord!</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.lc</span><span class="text-xs text-gray-400">Downloader for Instagram, Facebook, TikTok, Bilibili</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ytchecker</span><span class="text-xs text-gray-400">Download YouTube video (max 100MB)</span></div>
-                    <div class="flex flex-col gap-1 sm:col-span-2"><span class="cmd-badge w-fit bg-white/5 border-white/10 text-gray-300">.dl &lt;link&gt;</span><span class="text-xs text-gray-400 mt-1">Multi-Platform (IG, FB, TikTok, Bilibili, Reddit, Twitter, Snap, iFunny)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.lc</span><span class="text-xs text-white">Downloader for Instagram, Facebook, TikTok, Bilibili</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ytchecker</span><span class="text-xs text-white">Download YouTube video (max 100MB)</span></div>
+                    <div class="flex flex-col gap-1 sm:col-span-2"><span class="cmd-badge w-fit bg-white/5 border-white/10 text-white">.dl &lt;link&gt;</span><span class="text-xs text-white mt-1">Multi-Platform (IG, FB, TikTok, Bilibili, Reddit, Twitter, Snap, iFunny)</span></div>
                 </div>
             </div>
 
@@ -386,89 +395,89 @@
                     <h3 class="text-2xl font-bold text-white">Games, AI & Fun</h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit border-indigo-500/40 text-indigo-400">.animeai</span><span class="text-xs text-gray-400">Convert image to anime-style</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit border-indigo-500/40 text-indigo-400">.askgpt</span><span class="text-xs text-gray-400">Smart AI Chat Assistant</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.bangchan</span><span class="text-xs text-gray-400">Talk with real Bang Chan (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.beomgyu</span><span class="text-xs text-gray-400">Talk to Beomgyu (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.biasgame</span><span class="text-xs text-gray-400">Bias Battles & Rankings</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.bts</span><span class="text-xs text-gray-400">Talk to BTS members (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.claim</span><span class="text-xs text-gray-400">Claim a K-Pop card</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.code</span><span class="text-xs text-gray-400">Try code in any languages</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.danielle</span><span class="text-xs text-gray-400">Talk to Danielle (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.enhypen</span><span class="text-xs text-gray-400">Talk to ENHYPEN (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.felix</span><span class="text-xs text-gray-400">Talk with real Felix (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.freeclaim</span><span class="text-xs text-gray-400">Claim a card for free or low prices</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.gifsearch</span><span class="text-xs text-gray-400">Search for GIFs</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.googleimage</span><span class="text-xs text-gray-400">Google image search</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.hanni</span><span class="text-xs text-gray-400">Talk with real Hanni (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.haram</span><span class="text-xs text-gray-400">Talk to Haram - Billlie (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.heeseung</span><span class="text-xs text-gray-400">Talk with real Heeseung (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.homework</span><span class="text-xs text-gray-400">Homework helper</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.horoscope</span><span class="text-xs text-gray-400">Daily horoscope</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.hyunjin</span><span class="text-xs text-gray-400">Talk with real Hyunjin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imagine</span><span class="text-xs text-gray-400">Image generator using ChatGPT AI</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imgai</span><span class="text-xs text-gray-400">The best image creator (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imgtoart</span><span class="text-xs text-gray-400">Convert image to art</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jake</span><span class="text-xs text-gray-400">Talk to Jake (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jay</span><span class="text-xs text-gray-400">Talk to Jay (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jeongin</span><span class="text-xs text-gray-400">Talk to Jeongin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jimin</span><span class="text-xs text-gray-400">Talk with real Jimin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jisung</span><span class="text-xs text-gray-400">Talk to Jisung (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.joke</span><span class="text-xs text-gray-400">Get a random dad joke</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.julie</span><span class="text-xs text-gray-400">Talk to Julie (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jungkook</span><span class="text-xs text-gray-400">Talk with real Jungkook (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jungwon</span><span class="text-xs text-gray-400">Talk to Jungwon (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.karina</span><span class="text-xs text-gray-400">Talk with real Karina (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kbirthday</span><span class="text-xs text-gray-400">Today in K-Pop (Birthdays)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kdrama</span><span class="text-xs text-gray-400">Search for Korean dramas</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kgg</span><span class="text-xs text-gray-400">K-Pop idol guessing game with pictures</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kimg</span><span class="text-xs text-gray-400">Sends random K-Pop idol images (member only)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopchart</span><span class="text-xs text-gray-400">K-Pop charts all at once</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopgame</span><span class="text-xs text-gray-400">Ultimate K-Pop Challenge</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopmeme</span><span class="text-xs text-gray-400">K-Pop memes from Reddit</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopsound</span><span class="text-xs text-gray-400">Search K-Pop AI cover</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.krelease</span><span class="text-xs text-gray-400">K-Pop new releases</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopvote</span><span class="text-xs text-gray-400">K-Pop vote</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.leeknow</span><span class="text-xs text-gray-400">Talk with real Lee Know (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.lyrics</span><span class="text-xs text-gray-400">Searches lyrics</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.matthew</span><span class="text-xs text-gray-400">Talk to Matthew (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.minnie</span><span class="text-xs text-gray-400">Talk with real Minnie (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.movie</span><span class="text-xs text-gray-400">Search for movie or series and retrieve download links</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.mp4togif</span><span class="text-xs text-gray-400">Convert MP4 to GIF</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.mycards</span><span class="text-xs text-gray-400">Show your K-Pop cards</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.newjeans</span><span class="text-xs text-gray-400">Talk to NewJeans (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.niki</span><span class="text-xs text-gray-400">Talk to Niki (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ocr</span><span class="text-xs text-gray-400">Convert images to text</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.photocards</span><span class="text-xs text-gray-400">K-Pop photocards</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.pinsearch</span><span class="text-xs text-gray-400">Pinterest search</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.raidenei</span><span class="text-xs text-gray-400">Talk to Raiden Shogun and Ei (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.randomanime</span><span class="text-xs text-gray-400">Sending random anime images</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ricky</span><span class="text-xs text-gray-400">Talk to Ricky (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.rvotevip</span><span class="text-xs text-gray-400">VIP vote</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sana</span><span class="text-xs text-gray-400">Talk with real Sana (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.seonghwa</span><span class="text-xs text-gray-400">Talk to Seonghwa (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sethoroscope</span><span class="text-xs text-gray-400">Set your Zodiac signs</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.seungmin</span><span class="text-xs text-gray-400">Talk to Seungmin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sg</span><span class="text-xs text-gray-400">Song Guessing Quiz</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.setbias</span><span class="text-xs text-gray-400">Set bias</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.shinee</span><span class="text-xs text-gray-400">Talk to SHINee K-Pop group (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.soobin</span><span class="text-xs text-gray-400">Talk to Soobin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.straykids</span><span class="text-xs text-gray-400">Talk to Stray Kids (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sunghoon</span><span class="text-xs text-gray-400">Talk to Sunghoon (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sunoo</span><span class="text-xs text-gray-400">Talk to Sunoo (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tiktoktts</span><span class="text-xs text-gray-400">Generate TikTok-style text-to-speech</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.trade</span><span class="text-xs text-gray-400">Give a card to another user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.translate</span><span class="text-xs text-gray-400">Google translate to English</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tws</span><span class="text-xs text-gray-400">Talk to TWS K-Pop group (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.txt</span><span class="text-xs text-gray-400">Talk to TXT K-Pop group (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.wattpad</span><span class="text-xs text-gray-400">Wattpad search</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.wonyoung</span><span class="text-xs text-gray-400">Talk with real Wonyoung (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yeonjun</span><span class="text-xs text-gray-400">Talk with real Yeonjun (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yoongi</span><span class="text-xs text-gray-400">Talk with real Min Yoongi (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.youtubesearch</span><span class="text-xs text-gray-400">YouTube video search</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yunjin</span><span class="text-xs text-gray-400">Talk with real Yunjin (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.zb1</span><span class="text-xs text-gray-400">Talk to ZEROBASEONE (AI)</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.myvote</span><span class="text-xs text-gray-400">Check current user's vote and show bias</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit border-indigo-500/40 text-indigo-400">.animeai</span><span class="text-xs text-white">Convert image to anime-style</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit border-indigo-500/40 text-indigo-400">.askgpt</span><span class="text-xs text-white">Smart AI Chat Assistant</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.bangchan</span><span class="text-xs text-white">Talk with real Bang Chan (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.beomgyu</span><span class="text-xs text-white">Talk to Beomgyu (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.biasgame</span><span class="text-xs text-white">Bias Battles & Rankings</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.bts</span><span class="text-xs text-white">Talk to BTS members (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.claim</span><span class="text-xs text-white">Claim a K-Pop card</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.code</span><span class="text-xs text-white">Try code in any languages</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.danielle</span><span class="text-xs text-white">Talk to Danielle (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.enhypen</span><span class="text-xs text-white">Talk to ENHYPEN (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.felix</span><span class="text-xs text-white">Talk with real Felix (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.freeclaim</span><span class="text-xs text-white">Claim a card for free or low prices</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.gifsearch</span><span class="text-xs text-white">Search for GIFs</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.googleimage</span><span class="text-xs text-white">Google image search</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.hanni</span><span class="text-xs text-white">Talk with real Hanni (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.haram</span><span class="text-xs text-white">Talk to Haram - Billlie (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.heeseung</span><span class="text-xs text-white">Talk with real Heeseung (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.homework</span><span class="text-xs text-white">Homework helper</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.horoscope</span><span class="text-xs text-white">Daily horoscope</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.hyunjin</span><span class="text-xs text-white">Talk with real Hyunjin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imagine</span><span class="text-xs text-white">Image generator using ChatGPT AI</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imgai</span><span class="text-xs text-white">The best image creator (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.imgtoart</span><span class="text-xs text-white">Convert image to art</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jake</span><span class="text-xs text-white">Talk to Jake (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jay</span><span class="text-xs text-white">Talk to Jay (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jeongin</span><span class="text-xs text-white">Talk to Jeongin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jimin</span><span class="text-xs text-white">Talk with real Jimin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jisung</span><span class="text-xs text-white">Talk to Jisung (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.joke</span><span class="text-xs text-white">Get a random dad joke</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.julie</span><span class="text-xs text-white">Talk to Julie (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jungkook</span><span class="text-xs text-white">Talk with real Jungkook (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.jungwon</span><span class="text-xs text-white">Talk to Jungwon (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.karina</span><span class="text-xs text-white">Talk with real Karina (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kbirthday</span><span class="text-xs text-white">Today in K-Pop (Birthdays)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kdrama</span><span class="text-xs text-white">Search for Korean dramas</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kgg</span><span class="text-xs text-white">K-Pop idol guessing game with pictures</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kimg</span><span class="text-xs text-white">Sends random K-Pop idol images (member only)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopchart</span><span class="text-xs text-white">K-Pop charts all at once</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopgame</span><span class="text-xs text-white">Ultimate K-Pop Challenge</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopmeme</span><span class="text-xs text-white">K-Pop memes from Reddit</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopsound</span><span class="text-xs text-white">Search K-Pop AI cover</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.krelease</span><span class="text-xs text-white">K-Pop new releases</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kpopvote</span><span class="text-xs text-white">K-Pop vote</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.leeknow</span><span class="text-xs text-white">Talk with real Lee Know (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.lyrics</span><span class="text-xs text-white">Searches lyrics</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.matthew</span><span class="text-xs text-white">Talk to Matthew (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.minnie</span><span class="text-xs text-white">Talk with real Minnie (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.movie</span><span class="text-xs text-white">Search for movie or series and retrieve download links</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.mp4togif</span><span class="text-xs text-white">Convert MP4 to GIF</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.mycards</span><span class="text-xs text-white">Show your K-Pop cards</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.newjeans</span><span class="text-xs text-white">Talk to NewJeans (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.niki</span><span class="text-xs text-white">Talk to Niki (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ocr</span><span class="text-xs text-white">Convert images to text</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.photocards</span><span class="text-xs text-white">K-Pop photocards</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.pinsearch</span><span class="text-xs text-white">Pinterest search</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.raidenei</span><span class="text-xs text-white">Talk to Raiden Shogun and Ei (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.randomanime</span><span class="text-xs text-white">Sending random anime images</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ricky</span><span class="text-xs text-white">Talk to Ricky (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.rvotevip</span><span class="text-xs text-white">VIP vote</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sana</span><span class="text-xs text-white">Talk with real Sana (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.seonghwa</span><span class="text-xs text-white">Talk to Seonghwa (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sethoroscope</span><span class="text-xs text-white">Set your Zodiac signs</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.seungmin</span><span class="text-xs text-white">Talk to Seungmin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sg</span><span class="text-xs text-white">Song Guessing Quiz</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.setbias</span><span class="text-xs text-white">Set bias</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.shinee</span><span class="text-xs text-white">Talk to SHINee K-Pop group (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.soobin</span><span class="text-xs text-white">Talk to Soobin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.straykids</span><span class="text-xs text-white">Talk to Stray Kids (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sunghoon</span><span class="text-xs text-white">Talk to Sunghoon (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.sunoo</span><span class="text-xs text-white">Talk to Sunoo (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tiktoktts</span><span class="text-xs text-white">Generate TikTok-style text-to-speech</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.trade</span><span class="text-xs text-white">Give a card to another user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.translate</span><span class="text-xs text-white">Google translate to English</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tws</span><span class="text-xs text-white">Talk to TWS K-Pop group (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.txt</span><span class="text-xs text-white">Talk to TXT K-Pop group (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.wattpad</span><span class="text-xs text-white">Wattpad search</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.wonyoung</span><span class="text-xs text-white">Talk with real Wonyoung (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yeonjun</span><span class="text-xs text-white">Talk with real Yeonjun (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yoongi</span><span class="text-xs text-white">Talk with real Min Yoongi (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.youtubesearch</span><span class="text-xs text-white">YouTube video search</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.yunjin</span><span class="text-xs text-white">Talk with real Yunjin (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.zb1</span><span class="text-xs text-white">Talk to ZEROBASEONE (AI)</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.myvote</span><span class="text-xs text-white">Check current user's vote and show bias</span></div>
                 </div>
             </div>
 
@@ -479,42 +488,42 @@
                     <h3 class="text-2xl font-bold text-white">Moderation & Utilities</h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ban</span><span class="text-xs text-gray-400">Ban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.davatar</span><span class="text-xs text-gray-400">Get avatar and banner with Discord user ID</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discordlinkinfo</span><span class="text-xs text-gray-400">Get info from Discord server using link</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discordserveridinfo</span><span class="text-xs text-gray-400">Get info from Discord server using ID</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discorduploader</span><span class="text-xs text-gray-400">Uploads URLs to a text channel</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.emoji</span><span class="text-xs text-gray-400">Get source image and stats of an emoji</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.instastats</span><span class="text-xs text-gray-400">Get Instagram stats and posts</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kick</span><span class="text-xs text-gray-400">Kick a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.massban</span><span class="text-xs text-gray-400">Mass ban users</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.modset</span><span class="text-xs text-gray-400">Manage server administration settings</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.permissions</span><span class="text-xs text-gray-400">Command permission management</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.rename</span><span class="text-xs text-gray-400">Change member's nickname</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.slowmode</span><span class="text-xs text-gray-400">Change slowmode setting</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.softban</span><span class="text-xs text-gray-400">Softban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tempban</span><span class="text-xs text-gray-400">Temporarily ban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.unban</span><span class="text-xs text-gray-400">Unban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.userinfo</span><span class="text-xs text-gray-400">Show member info</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voiceban</span><span class="text-xs text-gray-400">Voice ban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voicekick</span><span class="text-xs text-gray-400">Kick from voice channel</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voiceunban</span><span class="text-xs text-gray-400">Voice unban a user</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.votereminder</span><span class="text-xs text-gray-400">Manage vote reminder settings</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.webhook</span><span class="text-xs text-gray-400">Webhook related commands</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.webhooktesting</span><span class="text-xs text-gray-400">Testing webhook and embed perms</span></div>
-                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.donate</span><span class="text-xs text-gray-400">Donate command in-bot</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.ban</span><span class="text-xs text-white">Ban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.davatar</span><span class="text-xs text-white">Get avatar and banner with Discord user ID</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discordlinkinfo</span><span class="text-xs text-white">Get info from Discord server using link</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discordserveridinfo</span><span class="text-xs text-white">Get info from Discord server using ID</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.discorduploader</span><span class="text-xs text-white">Uploads URLs to a text channel</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.emoji</span><span class="text-xs text-white">Get source image and stats of an emoji</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.instastats</span><span class="text-xs text-white">Get Instagram stats and posts</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.kick</span><span class="text-xs text-white">Kick a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.massban</span><span class="text-xs text-white">Mass ban users</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.modset</span><span class="text-xs text-white">Manage server administration settings</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.permissions</span><span class="text-xs text-white">Command permission management</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.rename</span><span class="text-xs text-white">Change member's nickname</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.slowmode</span><span class="text-xs text-white">Change slowmode setting</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.softban</span><span class="text-xs text-white">Softban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.tempban</span><span class="text-xs text-white">Temporarily ban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.unban</span><span class="text-xs text-white">Unban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.userinfo</span><span class="text-xs text-white">Show member info</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voiceban</span><span class="text-xs text-white">Voice ban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voicekick</span><span class="text-xs text-white">Kick from voice channel</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.voiceunban</span><span class="text-xs text-white">Voice unban a user</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.votereminder</span><span class="text-xs text-white">Manage vote reminder settings</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.webhook</span><span class="text-xs text-white">Webhook related commands</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.webhooktesting</span><span class="text-xs text-white">Testing webhook and embed perms</span></div>
+                    <div class="flex flex-col gap-1"><span class="cmd-badge w-fit">.donate</span><span class="text-xs text-white">Donate command in-bot</span></div>
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Enhanced Support / Donate Section -->
+    <!-- Support / Donate Section -->
     <section id="donate" class="py-24 px-4 reveal">
         <div class="max-w-5xl mx-auto text-center mb-12">
             <h2 class="text-sm font-bold tracking-widest text-hanni-pink uppercase mb-3">Keep Us Running</h2>
             <h3 class="text-4xl font-bold mb-4 text-white">Support The Project & Donate</h3>
-            <p class="text-gray-300 max-w-2xl mx-auto">Hosting high-speed downloaders, real-time alerts, and AI features requires powerful servers. If you love Hanni Bot, your donation helps keep it free and updated. Every contribution counts!</p>
+            <p class="text-white max-w-2xl mx-auto">Hosting high-speed downloaders, real-time alerts, and AI features requires powerful servers. If you love Hanni Bot, your donation helps keep it free and updated. Every contribution counts!</p>
         </div>
 
         <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -527,10 +536,10 @@
                     </div>
                     <div class="text-left">
                         <h4 class="font-bold text-lg text-white">Ko-fi Support</h4>
-                        <p class="text-sm text-gray-300">View Tiers & Perks</p>
+                        <p class="text-sm text-white">View Tiers & Perks</p>
                     </div>
                 </div>
-                <i data-lucide="external-link" class="text-gray-500 group-hover:text-white transition-colors"></i>
+                <i data-lucide="external-link" class="text-white group-hover:text-white transition-colors"></i>
             </a>
 
             <!-- In Bot -->
@@ -541,7 +550,7 @@
                     </div>
                     <div class="text-left">
                         <h4 class="font-bold text-lg text-white">In-Bot Command</h4>
-                        <p class="text-sm text-gray-300">Type <span class="text-hanni-pink font-mono">.donate</span> in Discord</p>
+                        <p class="text-sm text-white">Type <span class="text-hanni-pink font-mono">.donate</span> in Discord</p>
                     </div>
                 </div>
             </div>
@@ -554,10 +563,10 @@
                     </div>
                     <div class="text-left">
                         <h4 class="font-bold text-lg text-white">Bitcoin (BTC)</h4>
-                        <p class="text-sm text-gray-300">BTC Network</p>
+                        <p class="text-sm text-white">BTC Network</p>
                     </div>
                 </div>
-                <div class="bg-black/40 px-4 py-2 rounded-lg border border-white/8 text-sm font-mono text-gray-300">
+                <div class="bg-black/40 px-4 py-2 rounded-lg border border-white/8 text-sm font-mono text-white">
                     DM <span class="text-white">@kylauwu</span>
                 </div>
             </div>
@@ -570,10 +579,10 @@
                     </div>
                     <div class="text-left">
                         <h4 class="font-bold text-lg text-white">Solana (SOL)</h4>
-                        <p class="text-sm text-gray-300">Solana Network</p>
+                        <p class="text-sm text-white">Solana Network</p>
                     </div>
                 </div>
-                <div class="bg-black/40 px-4 py-2 rounded-lg border border-white/8 text-sm font-mono text-gray-300">
+                <div class="bg-black/40 px-4 py-2 rounded-lg border border-white/8 text-sm font-mono text-white">
                     DM <span class="text-white">@kylauwu</span>
                 </div>
             </div>
@@ -581,27 +590,27 @@
         </div>
     </section>
 
-    <!-- Enhanced Footer -->
+    <!-- Footer -->
     <footer class="mt-12 py-12 border-t border-white/8 bg-black/30 text-center px-4 relative overflow-hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 relative z-10">
             <div class="flex items-center gap-3">
                 <img src="https://hannibot.ir/be1cdb3d-7f12-40dd-b441-889f7504e9a3.jpg" alt="Hanni Bot Logo" class="w-12 h-12 rounded-full border border-white/10">
                 <div class="text-left">
                     <span class="font-extrabold text-xl block leading-tight text-white">Hanni Bot</span>
-                    <span class="text-xs text-gray-400">By @kylauwu - Best Discord Bot for K-Pop, AI, Downloaders & Iran DNS</span>
+                    <span class="text-xs text-white">By @kylauwu - Best Discord Bot for K-Pop, AI, Downloaders & Iran DNS</span>
                 </div>
             </div>
             
-            <p class="text-gray-400 text-sm">
+            <p class="text-white text-sm">
                 &copy; 2026 KpopDev. All rights reserved. <br class="sm:hidden">
                 Not affiliated with ADOR, HYBE, or any platform.
             </p>
 
             <div class="flex gap-4">
-                <a href="https://discord.gg/RxV5yN2b3e" target="_blank" class="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center text-gray-300 hover:text-white hover:bg-hanni-purple transition-all">
+                <a href="https://discord.gg/RxV5yN2b3e" target="_blank" class="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center text-white hover:text-white hover:bg-hanni-purple transition-all">
                     <i data-lucide="message-circle" class="w-5 h-5"></i>
                 </a>
-                <a href="https://github.com/kpopdev" target="_blank" class="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center text-gray-300 hover:text-white hover:bg-white/10 transition-all">
+                <a href="https://github.com/kpopdev" target="_blank" class="w-10 h-10 rounded-full bg-white/8 flex items-center justify-center text-white hover:text-white hover:bg-white/10 transition-all">
                     <i data-lucide="github" class="w-5 h-5"></i>
                 </a>
             </div>
