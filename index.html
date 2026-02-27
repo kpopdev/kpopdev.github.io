@@ -17,14 +17,14 @@
     <meta name="googlebot" content="index, follow">
     <link rel="canonical" href="https://hannibot.ir/">
     
-    <!-- HIGH PERFORMANCE MULTILINGUAL SEO -->
-    <title>Hanni Bot | #1 Social Media Bot & Fast Iran Gaming DNS 1404</title>
-    <meta name="description" content="Hanni Bot: The ultimate Discord bot for Instagram, TikTok, Weverse, and YouTube. Instant notifications, AI chat, and the fastest Iranian DNS (1404). بهترین ربات دیسکورد و سریع ترین دی ان اس گیمینگ. 인스타그램 및 위버스 알림을 위한 최고의 디스코드 봇.">
-    <meta name="keywords" content="Hanni Bot, Discord Bot, Instagram Notification Bot, TikTok Discord Bot, Weverse Notifier, Twitter X Bot, YouTube Post Bot, Iran Gaming DNS, Fastest DNS 1404, 1405 DNS, هانی بات, ربات اینستاگرام دیسکورد, بهترین دی ان اس ایران, اینستاگرام بات, 위버스 봇, 인스타그램 알림 봇, 하니 봇, Discord AI Chat, Discord Downloader Bot, K-Pop Bot">
+    <!-- ULTIMATE MULTILINGUAL SEO -->
+    <title>Hanni Bot | #1 Social Media Bot, AI Idol Chat & Fast Iran Gaming DNS 1404</title>
+    <meta name="description" content="Hanni Bot: The ultimate Discord bot for Instagram, TikTok, Weverse, and YouTube. Instant notifications, AI chat with idols, and the fastest Iranian DNS (1404). 최고의 디스코드 봇 하니봇. 인스타그램, 위버스 알림 및 한국 게이머를 위한 최적의 설정.">
+    <meta name="keywords" content="Hanni Bot, Discord Bot, Instagram Notification Bot, TikTok Discord Bot, Weverse Notifier, Twitter X Bot, YouTube Post Bot, Iran Gaming DNS, Fastest DNS 1404, 1405 DNS, هانی بات, ربات اینستاگرام دیسکورد, بهترین دی ان اس ایران, اینستاگرام بات, 위버스 봇, 인스타그램 알림 봇, 하니 봇, Discord AI Chat, Discord Downloader Bot, K-Pop Bot, Gaming Ping Fix, Valorant DNS Iran, Fortnite DNS Iran">
 
     <!-- Open Graph / Social Media -->
     <meta property="og:title" content="Hanni Bot - Best Social Media Notifier & Gaming DNS">
-    <meta property="og:description" content="Get instant notifications for Instagram, TikTok, and Weverse on Discord. Includes the fastest DNS for Iranian gamers.">
+    <meta property="og:description" content="Get instant notifications for Instagram, TikTok, and Weverse on Discord. Includes the fastest DNS for Iranian gamers. Support development on Ko-fi.">
     <meta property="og:image" content="https://hannibot.ir/be1cdb3d-7f12-40dd-b441-889f7504e9a3.jpg">
     <meta property="og:url" content="https://hannibot.ir/">
     <meta property="og:type" content="website">
@@ -44,12 +44,18 @@
         .btn-glow { box-shadow: 0 0 20px rgba(99, 102, 241, 0.3); transition: 0.3s; }
         .btn-glow:hover { box-shadow: 0 0 35px rgba(99, 102, 241, 0.5); transform: translateY(-2px); }
         
-        /* Command Table Custom Scrollbar */
         .cmd-scroll::-webkit-scrollbar { width: 6px; }
         .cmd-scroll::-webkit-scrollbar-track { background: transparent; }
         .cmd-scroll::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
 
         .search-bar:focus { outline: none; border-color: var(--brand); box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2); }
+        
+        @keyframes pulse-ring {
+            0% { transform: scale(.8); opacity: 0.5; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        .pulse-effect { position: relative; }
+        .pulse-effect::after { content: ''; position: absolute; width: 100%; height: 100%; top: 0; left: 0; background: inherit; border-radius: inherit; animation: pulse-ring 2s infinite; z-index: -1; }
     </style>
 </head>
 <body>
@@ -58,7 +64,7 @@
     <nav class="fixed top-0 w-full z-[100] glass border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center gap-3">
-                <img src="https://hannibot.ir/be1cdb3d-7f12-40dd-b441-889f7504e9a3.jpg" alt="Hanni Bot" class="w-10 h-10 rounded-full ring-2 ring-indigo-500 shadow-xl shadow-indigo-500/20">
+                <img src="https://hannibot.ir/be1cdb3d-7f12-40dd-b441-889f7504e9a3.jpg" alt="Hanni Bot Logo" class="w-10 h-10 rounded-full ring-2 ring-indigo-500 shadow-xl shadow-indigo-500/20">
                 <span class="text-xl font-extrabold tracking-tighter">Hanni Bot</span>
             </div>
             
@@ -88,7 +94,7 @@
                 Hanni Bot is the fastest notification engine for 15+ platforms. Instagram, TikTok, Weverse, and YouTube — all in one place with powerful AI tools and games.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-6">
-                <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123&permissions=8&scope=bot%20applications.commands" class="px-12 py-5 bg-white text-black rounded-2xl font-black text-xl btn-glow flex items-center justify-center gap-3">
+                <a href="https://discord.com/oauth2/authorize?client_id=624955196040282123&permissions=8&scope=bot%20applications.commands" class="px-12 py-5 bg-white text-black rounded-2xl font-black text-xl btn-glow flex items-center justify-center gap-3 transition-transform hover:scale-105">
                     <i data-lucide="zap"></i> Add to Discord
                 </a>
                 <a href="https://discord.gg/RxV5yN2b3e" class="px-12 py-5 bg-slate-900 text-white rounded-2xl font-black text-xl border border-white/10 hover:bg-slate-800 transition-all flex items-center justify-center gap-3">
@@ -103,8 +109,8 @@
         <div class="max-w-7xl mx-auto">
             <div class="flex flex-col md:flex-row justify-between items-end gap-6 mb-12">
                 <div>
-                    <h2 class="text-5xl font-black mb-4">Command Center</h2>
-                    <p class="text-slate-400 font-bold">Search through 100+ commands across 10+ categories.</p>
+                    <h2 class="text-5xl font-black mb-4 uppercase tracking-tighter">Command Center</h2>
+                    <p class="text-slate-400 font-bold">Instantly search through 100+ commands including AI, Socials, and Mod.</p>
                 </div>
                 <div class="relative w-full md:w-96">
                     <i data-lucide="search" class="absolute left-4 top-1/2 -translate-y-1/2 text-slate-500 w-5 h-5"></i>
@@ -122,7 +128,7 @@
                             </tr>
                         </thead>
                         <tbody id="commandTable">
-                            <!-- Commands will be populated by JS from your txt data -->
+                            <!-- Populated by JS -->
                         </tbody>
                     </table>
                 </div>
@@ -133,40 +139,45 @@
     <!-- Donation Section -->
     <section id="donate" class="py-24 px-6">
         <div class="max-w-6xl mx-auto">
-            <div class="glass p-12 md:p-20 rounded-[3rem] border-emerald-500/20 relative overflow-hidden">
+            <div class="glass p-12 md:p-20 rounded-[3rem] border-emerald-500/20 relative overflow-hidden shadow-2xl shadow-emerald-500/5">
                 <div class="absolute -top-24 -right-24 w-96 h-96 bg-emerald-500/5 blur-[80px] rounded-full"></div>
                 
-                <h2 class="text-5xl font-black mb-12 text-center">Donate & Unlock <span class="text-emerald-400">Premium</span></h2>
+                <h2 class="text-5xl font-black mb-6 text-center">Donate & Support <span class="text-emerald-400 italic">Hanni</span></h2>
+                <div class="text-center mb-16 space-y-4">
+                    <p class="text-slate-300 text-lg font-bold">With your support, Hanni Bot will become faster and stronger every day ❤️</p>
+                    <p class="text-emerald-400 font-bold">당신의 지원으로 하니봇은 매일 더 빠르고 강해질 것입니다 ❤️</p>
+                    <p class="persian-text text-xl font-black">با حمایت شما، هانی بات روز به روز سریع‌تر و قوی‌تر خواهد شد ❤️</p>
+                </div>
                 
                 <div class="grid lg:grid-cols-2 gap-12">
                     <!-- Global Support -->
                     <div class="space-y-6">
-                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 flex flex-col gap-4">
+                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 flex flex-col gap-4 hover:border-indigo-500/30 transition-colors group">
                             <div class="flex items-center gap-3 text-indigo-400 font-black uppercase text-xs tracking-widest">
                                 <i data-lucide="bitcoin" class="w-4 h-4"></i> BTC (Bitcoin Network)
                             </div>
                             <div class="flex items-center justify-between gap-4">
                                 <code class="text-sm text-indigo-200 mono break-all">18ReTpYqFrA1EM9TGkyJdcQxJDNCu6HwgR</code>
-                                <button onclick="copy('18ReTpYqFrA1EM9TGkyJdcQxJDNCu6HwgR')" class="p-3 bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-all"><i data-lucide="copy" class="w-5 h-5"></i></button>
+                                <button onclick="copy('18ReTpYqFrA1EM9TGkyJdcQxJDNCu6HwgR')" class="p-3 bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-all flex-shrink-0"><i data-lucide="copy" class="w-5 h-5"></i></button>
                             </div>
                         </div>
 
-                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 flex flex-col gap-4">
+                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 flex flex-col gap-4 hover:border-purple-500/30 transition-colors">
                             <div class="flex items-center gap-3 text-purple-400 font-black uppercase text-xs tracking-widest">
                                 <i data-lucide="zap" class="w-4 h-4"></i> Solana (SOL Network)
                             </div>
                             <div class="flex items-center justify-between gap-4">
                                 <code class="text-sm text-purple-200 mono break-all">7fckhMsoFKPQnugDhFfdzCuPnAXkFcagVp3B2csPLQ8V</code>
-                                <button onclick="copy('7fckhMsoFKPQnugDhFfdzCuPnAXkFcagVp3B2csPLQ8V')" class="p-3 bg-purple-600 rounded-xl hover:bg-purple-500 transition-all"><i data-lucide="copy" class="w-5 h-5"></i></button>
+                                <button onclick="copy('7fckhMsoFKPQnugDhFfdzCuPnAXkFcagVp3B2csPLQ8V')" class="p-3 bg-purple-600 rounded-xl hover:bg-purple-500 transition-all flex-shrink-0"><i data-lucide="copy" class="w-5 h-5"></i></button>
                             </div>
                         </div>
 
-                        <a href="https://ko-fi.com/kpopdev/tiers" target="_blank" class="w-full p-8 glass rounded-3xl flex items-center justify-between border-indigo-500/20 hover:border-indigo-500/50 transition-all group">
+                        <a href="https://ko-fi.com/kpopdev/tiers" target="_blank" class="w-full p-8 glass rounded-3xl flex items-center justify-between border-emerald-500/20 hover:border-emerald-500/50 transition-all group pulse-effect">
                             <div class="flex items-center gap-6">
-                                <div class="p-4 bg-indigo-600 rounded-2xl"><i data-lucide="coffee"></i></div>
+                                <div class="p-4 bg-emerald-600 rounded-2xl"><i data-lucide="coffee" class="text-white"></i></div>
                                 <div>
                                     <h3 class="text-xl font-black">Ko-fi Membership</h3>
-                                    <p class="text-slate-400">Get access to all premium features</p>
+                                    <p class="text-slate-400">Join a membership for full access!</p>
                                 </div>
                             </div>
                             <i data-lucide="chevron-right" class="group-hover:translate-x-2 transition-transform"></i>
@@ -175,24 +186,25 @@
 
                     <!-- Iranian Support -->
                     <div class="space-y-6 persian-text text-right" dir="rtl">
-                        <div class="p-8 bg-indigo-600/10 rounded-3xl border border-indigo-500/20 space-y-4">
+                        <div class="p-8 bg-indigo-600/10 rounded-3xl border border-indigo-500/20 space-y-4 hover:bg-indigo-600/20 transition-all cursor-pointer" onclick="copy('6037998142659597')">
                             <span class="text-xs font-black text-slate-500 uppercase tracking-widest">شماره کارت بانکی (محمد نقوی)</span>
                             <div class="flex items-center justify-between flex-row-reverse">
-                                <span class="text-3xl font-black text-white tracking-tighter">6037998142659597</span>
-                                <button onclick="copy('6037998142659597')" class="p-3 bg-indigo-600 rounded-xl hover:bg-indigo-500 transition-all"><i data-lucide="copy" class="w-5 h-5"></i></button>
+                                <span class="text-3xl font-black text-white tracking-tighter">6037 9981 4265 9597</span>
+                                <div class="p-3 bg-indigo-600 rounded-xl"><i data-lucide="copy" class="w-5 h-5 text-white"></i></div>
                             </div>
+                            <p class="text-xs text-indigo-400 font-bold mt-2">برای کپی کردن روی شماره کارت کلیک کنید</p>
                         </div>
 
-                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 space-y-4">
+                        <div class="p-8 bg-white/5 rounded-3xl border border-white/10 space-y-4 hover:border-white/20 transition-all cursor-pointer" onclick="copy('IR060170000000226286880001')">
                             <span class="text-xs font-black text-slate-500 uppercase tracking-widest">شماره شبا</span>
                             <div class="flex items-center justify-between flex-row-reverse">
-                                <span class="text-xs text-slate-400 mono">IR060170000000226286880001</span>
-                                <button onclick="copy('IR060170000000226286880001')" class="p-3 bg-slate-700 rounded-xl hover:bg-slate-600 transition-all"><i data-lucide="copy" class="w-5 h-5"></i></button>
+                                <span class="text-xs text-slate-400 mono break-all">IR060170000000226286880001</span>
+                                <div class="p-3 bg-slate-700 rounded-xl"><i data-lucide="copy" class="w-5 h-5 text-white"></i></div>
                             </div>
                         </div>
 
                         <div class="p-8 bg-indigo-500/5 rounded-3xl border border-white/5 text-center">
-                            <p class="text-lg font-bold text-slate-300">با حمایت شما، هانی بات روز به روز سریع‌تر و قوی‌تر خواهد شد ❤️</p>
+                            <p class="text-lg font-bold text-slate-300">Unlock VIP Social Media alerts by supporting development.</p>
                         </div>
                     </div>
                 </div>
@@ -200,52 +212,53 @@
         </div>
     </section>
 
-    <!-- DNS Section (Moved to Bottom) -->
+    <!-- DNS Section -->
     <section id="dns-info" class="py-24 px-6 bg-slate-900/20">
         <div class="max-w-5xl mx-auto text-center">
             <h2 class="text-5xl font-black mb-8 persian-text">سریع‌ترین دی ان اس گیمینگ ایران 🚀</h2>
-            <div class="persian-text text-2xl text-slate-400 mb-12 leading-relaxed">
-                <p>ما بهترین و پایدارترین دی ان اس های گیمینگ دنیا را برای شما میزبانی می‌کنیم تا بهترین پینگ و سرعت را در بازی‌ها تجربه کنید.</p>
+            <div class="persian-text text-2xl text-slate-400 mb-12 leading-relaxed max-w-3xl mx-auto">
+                <p>دیگر نگران تحریم‌ها و پینگ بالا در بازی‌هایی مثل Valorant، CS2 و Fortnite نباشید. ما بهترین پینگ و سرعت را برای شما تضمین می‌کنیم.</p>
             </div>
             <div class="flex flex-col md:flex-row justify-center gap-6">
-                <a href="https://hannibot.ir/dns-gaming-iran" class="px-12 py-6 bg-indigo-600 text-white rounded-[2rem] font-black text-2xl btn-glow persian-text flex items-center justify-center gap-4">
-                    مشاهده لیست کامل ۱۰۰۰ دی ان اس <i data-lucide="globe" class="w-8 h-8"></i>
+                <a href="https://hannibot.ir/dns-gaming-iran" class="px-12 py-6 bg-indigo-600 text-white rounded-[2rem] font-black text-2xl btn-glow persian-text flex items-center justify-center gap-4 group">
+                    مشاهده لیست ۱۰۰۰ دی ان اس <i data-lucide="globe" class="w-8 h-8 group-hover:rotate-12 transition-transform"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-20 px-6 border-t border-white/5">
+    <footer class="py-20 px-6 border-t border-white/5 bg-slate-950">
         <div class="max-w-7xl mx-auto">
-            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div class="grid md:grid-cols-3 gap-12 items-center">
                 <div class="flex items-center gap-4">
                     <img src="https://hannibot.ir/be1cdb3d-7f12-40dd-b441-889f7504e9a3.jpg" alt="Hanni Bot" class="w-12 h-12 rounded-full ring-2 ring-indigo-500">
                     <span class="text-3xl font-black italic tracking-tighter">Hanni Bot</span>
                 </div>
-                <div class="flex gap-10 font-bold text-slate-500">
+                <div class="flex justify-center gap-10 font-bold text-slate-500">
                     <a href="https://discord.gg/RxV5yN2b3e" class="hover:text-white">Discord</a>
                     <a href="https://top.gg/bot/624955196040282123" class="hover:text-white">Vote</a>
                     <a href="https://ko-fi.com/kpopdev/tiers" class="hover:text-white">Premium</a>
                 </div>
-                <p class="text-slate-600 font-bold text-sm">© 2026 KpopDev. All rights reserved.</p>
+                <div class="text-right">
+                    <p class="text-slate-600 font-bold text-sm">© 2026 KpopDev. Optimized for SEO Worldwide.</p>
+                </div>
             </div>
         </div>
     </footer>
 
     <!-- Toast UI -->
     <div id="toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 glass px-10 py-4 rounded-full font-black text-white shadow-2xl shadow-indigo-500/20 opacity-0 transition-all pointer-events-none z-[1000] border-indigo-500/50">
-        Copied to Clipboard!
+        Copied Successfully!
     </div>
 
     <script>
-        // Init Icons
         lucide.createIcons();
 
-        // Copy Utility
+        // High-Reliability Copy Function
         function copy(text) {
             const el = document.createElement('textarea');
-            el.value = text;
+            el.value = text.replace(/\s/g, ''); // Remove spaces if any
             document.body.appendChild(el);
             el.select();
             document.execCommand('copy');
@@ -260,7 +273,6 @@
             }, 3000);
         }
 
-        // Commands Data & Population
         const rawCommands = `
 .allkpop posting kpop news feeds on your server from allkpop.com
 .berriz Berriz Notifier for idol group updates, notices, and messages.
@@ -329,29 +341,21 @@
         function renderCommands(filter = '') {
             const lines = rawCommands.trim().split('\n');
             tableBody.innerHTML = '';
-            
             lines.forEach(line => {
                 const spaceIndex = line.indexOf(' ');
+                if (spaceIndex === -1) return;
                 const cmd = line.substring(0, spaceIndex).trim();
                 const desc = line.substring(spaceIndex).trim();
-
                 if (cmd.toLowerCase().includes(filter.toLowerCase()) || desc.toLowerCase().includes(filter.toLowerCase())) {
                     const tr = document.createElement('tr');
                     tr.className = "border-b border-white/5 hover:bg-white/5 transition-colors group";
-                    tr.innerHTML = `
-                        <td class="p-6 font-black text-indigo-400 mono text-lg">${cmd}</td>
-                        <td class="p-6 text-slate-300 font-medium">${desc}</td>
-                    `;
+                    tr.innerHTML = `<td class="p-6 font-black text-indigo-400 mono text-lg">${cmd}</td><td class="p-6 text-slate-300 font-medium">${desc}</td>`;
                     tableBody.appendChild(tr);
                 }
             });
         }
 
-        searchInput.addEventListener('input', (e) => {
-            renderCommands(e.target.value);
-        });
-
-        // Init table
+        searchInput.addEventListener('input', (e) => renderCommands(e.target.value));
         renderCommands();
 
         // SEO JSON-LD
@@ -361,19 +365,14 @@
             "name": "Hanni Bot",
             "operatingSystem": "Discord",
             "applicationCategory": "SocialMedia",
-            "description": "The best social media notification bot for Instagram, Weverse, TikTok & Fastest Gaming DNS Iran.",
-            "alternateName": ["هانی بات", "하니 봇"],
-            "offers": {
-                "@type": "Offer",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
+            "description": "Best Discord bot for Instagram, Weverse notifications and Iran Gaming DNS.",
+            "alternateName": ["هانی بات", "하니 봇", "하니봇"],
+            "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
         };
-        const script = document.createElement('script');
-        script.type = 'application/ld+json';
-        script.text = JSON.stringify(schema);
-        document.head.appendChild(script);
-
+        const s = document.createElement('script');
+        s.type = 'application/ld+json';
+        s.text = JSON.stringify(schema);
+        document.head.appendChild(s);
     </script>
 </body>
 </html>
