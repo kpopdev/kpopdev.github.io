@@ -3,14 +3,18 @@ name: Update DNS JSON
 on:
   push:
     paths:
-      - dns.txt
+      - "dns.txt"
+      - "scripts/update.js"
+
+permissions:
+  contents: write
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repo
+      - name: Checkout repository
         uses: actions/checkout@v4
 
       - name: Setup Node.js
@@ -18,13 +22,24 @@ jobs:
         with:
           node-version: 20
 
-      - name: Run script
+      - name: Run DNS generator
         run: node scripts/update.js
 
-      - name: Commit dns.json
+      - name: Check for changes
+        id: changes
         run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
+          if git diff --quiet; then
+            echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
           git add dns.json
-          git commit -m "Auto update dns.json" || exit 0
+          git commit -m "Auto-update dns.json"
           git push
