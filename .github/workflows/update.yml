@@ -5,13 +5,15 @@ on:
     paths:
       - "dns.txt"
       - "scripts/update.js"
+      - ".github/workflows/update.yml"
+  workflow_dispatch:
 
 permissions:
   contents: write
 
-# Only one run at a time, extra runs wait in queue instead of racing
+# Same group as the sitemap workflow so they never push at the same time
 concurrency:
-  group: update-dns-json
+  group: push-to-main
   cancel-in-progress: false
 
 jobs:
